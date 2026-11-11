@@ -1,248 +1,781 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ORVEXAN FASHION | Luxury Lifestyle & Clothing</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>O</text></svg>">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = { theme: { extend: { colors: { brand: { beige: '#F6F3ED', card: '#EFECE6', dark: '#1C1917' } }, fontFamily: { serif: ['Cormorant Garamond', 'serif'], sans: ['Montserrat', 'sans-serif'] } } } }
-  </script>
-  <style>body { background-color: #F6F3ED; color: #1C1917; font-family: 'Montserrat', sans-serif; } h1,h2,h3,h4,.font-serif { font-family: 'Cormorant Garamond', serif; }</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orvexan Fashion</title>
+    <link rel="icon" type="image/jpeg" href="Orvexan logo.jpeg">
+    <style>
+        /* Reset default spacing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Header bar styling */
+        header {
+        header {
+  background-color: #faf8f5;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 14px 40px;
+  border-bottom: 1px solid #eae5de;
+  width: 100%;
+}
+        }
+
+        /* Brand title on left */
+        .brand-title {
+            font-family: Georgia, serif;
+            font-size: 18px;
+            letter-spacing: 3px;
+            font-weight: bold;
+            color: #222222;
+            text-decoration: none;
+        }
+
+        /* Navigation menu container */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px; /* Spacing between menu items */
+            margin-left: auto; /* Pushes the menu all the way to the right */
+        }
+
+        /* Navigation link items */
+        .nav-menu a {
+            text-decoration: none;
+            color: #444444;
+            font-size: 13px;
+            letter-spacing: 1px;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        /* Hover effect on links */
+        .nav-menu a:hover {
+            color: #000000;
+        }
+        /* Home Section Styling */
+        .home-section {
+            padding: 70px 40px;
+            background-color: #faf8f5; /* Matches top header bar color */
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #eae5de;
+        }
+
+        .home-container {
+            display: flex;
+            max-width: 1100px;
+            width: 100%;
+            gap: 50px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Left Side Text Styling */
+        .home-text {
+            flex: 1.1;
+        }
+
+        .brand-tagline {
+            font-size: 11px;
+            letter-spacing: 4px;
+            color: #777777;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .home-text h1 {
+            font-family: Georgia, serif;
+            font-size: 46px;
+            line-height: 1.2;
+            color: #111111;
+            font-weight: normal;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .home-description {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #555555;
+            margin-bottom: 30px;
+            max-width: 480px;
+        }
+
+        /* Button Styling */
+        .btn-primary {
+            display: inline-block;
+            background-color: #111111;
+            color: #ffffff;
+            padding: 14px 28px;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 2px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #333333;
+        }
+
+        /* Right Side Image Box Styling */
+        .home-image-box {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-image-box img {
+            max-width: 100%;
+            height: auto;
+            max-height: 420px;
+            object-fit: contain;
+            /* Drop shadow gives transparent PNG hoodies a sleek 3D look */
+            filter: drop-shadow(0px 15px 25px rgba(0, 0, 0, 0.1));
+        }
+        /* About Section Styling */
+        .about-section {
+            padding: 80px 40px;
+            background-color: #ffffff; /* Matches the header tone */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-container {
+            display: flex;
+            max-width: 1000px;
+            width: 100%;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* Image Box Placeholder Styling */
+        .founder-image-box {
+            flex: 1;
+            width: 100%;
+            height: 400px;
+            background-color: #e5e0d8; /* Placeholder background until image is added */
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .founder-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Founder Info Text Styling */
+        .founder-info {
+            flex: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #777777;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .founder-info h2 {
+            font-family: Georgia, serif;
+            font-size: 32px;
+            color: #222222;
+            margin-bottom: 8px;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        .founder-location {
+            font-size: 13px;
+            color: #666666;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .founder-bio {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #444444;
+        }
+/* Collections Grid & Cards */
+.collections-section {
+  padding: 80px 40px;
+  background-color: #0d0d0d;
+  color: #ffffff;
+  text-align: center;
+}
+
+.collections-title {
+  font-family: 'Georgia', serif;
+  font-size: 32px;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.collections-subtitle {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #888888;
+  margin-bottom: 50px;
+}
+
+.collections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 35px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.collection-card {
+  background: #141414;
+  border: 1px solid #222;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-image-box {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  border-radius: 6px;
+  margin-bottom: 18px;
+  background-color: #1a1a1a;
+}
+
+.card-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card-image-box:hover img {
+  transform: scale(1.04);
+}
+
+/* Customizable Corner Badge */
+.custom-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #ffffff;
+  color: #000000;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 6px 12px;
+  border-radius: 3px;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.collection-card h3 {
+  font-family: 'Georgia', serif;
+  font-size: 20px;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.product-price {
+  font-size: 16px;
+  font-weight: 600;
+  color: #e6c280;
+  margin-bottom: 4px;
+}
+
+.product-sizes {
+  font-size: 12px;
+  color: #aaaaaa;
+  margin-bottom: 12px;
+}
+
+.custom-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #cccccc;
+  background: #1e1e1e;
+  padding: 10px 12px;
+  border-left: 3px solid #e6c280;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.order-card-btn {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: auto;
+  transition: color 0.2s;
+}
+
+.order-card-btn:hover {
+  color: #e6c280;
+}
+/* Upgraded Order Section Styles */
+.order-section {
+  background-color: #faf8f5;
+  padding: 80px 20px;
+  color: #1a1a1a;
+}
+
+.order-container {
+  max-width: 650px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 50px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eae6df;
+}
+
+.order-container h2 {
+  font-family: 'Georgia', serif;
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #111;
+  text-align: center;
+}
+
+.order-subtitle {
+  text-align: center;
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 35px;
+}
+
+.order-form .form-group {
+  margin-bottom: 22px;
+}
+
+.order-form label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+  letter-spacing: 0.5px;
+}
+
+.order-form input, 
+.order-form select, 
+.order-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  transition: border-color 0.2s;
+}
+
+.order-form input:focus, 
+.order-form select:focus, 
+.order-form textarea:focus {
+  border-color: #111;
+  outline: none;
+}
+
+/* Price Breakdown Box */
+.price-summary-box {
+  background: #f9f8f6;
+  border: 1px solid #e5e0d8;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 25px 0;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.total-row {
+  border-top: 1px solid #dcd6cd;
+  padding-top: 12px;
+  margin-top: 12px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #111;
+}
+
+/* Green Submit Button */
+.submit-btn-green {
+  width: 100%;
+  background-color: #fdfbd4;
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.submit-btn-green:hover {
+  background-color: #219653;
+}
+
+.submit-btn-green:active {
+  transform: scale(0.99);
+}
+        /* Footer Styles */
+.site-footer {
+  background-color: #111110;
+  color: #a0a0a0;
+  padding: 60px 40px 20px 40px;
+  font-family: 'Georgia', serif;
+  border-top: 1px solid #222;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #222;
+}
+
+.footer-col h3, .footer-col h4 {
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+
+.footer-col p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #888888;
+}
+
+.footer-col a {
+  color: #888888;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 25px;
+}
+
+.footer-bottom p {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #666666;
+  text-transform: uppercase;
+}
+    </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between">
-  <!-- Top Bar & Nav -->
-  <div class="bg-brand-dark text-stone-300 text-xs py-2 text-center uppercase tracking-widest">CHATTOGRAM, BANGLADESH &bull; THOUGHTFULLY CRAFTED &bull; WHATSAPP: 01863487214</div>
-  <nav class="sticky top-0 z-40 bg-[#F6F3ED]/90 backdrop-blur-md border-b border-stone-300/60 px-6 py-4 flex justify-between items-center">
-    <div class="flex items-center space-x-6 text-xs uppercase tracking-wider">
-      <a href="#collection">Collection</a>
-      <a href="#founder">About Founder</a>
-    </div>
-    <a href="#" class="text-center">
-      <span class="text-3xl font-bold tracking-[0.2em] font-serif block text-brand-dark">ORVEXAN</span>
-      <span class="text-[10px] tracking-[0.4em] text-stone-500 uppercase block -mt-1">F A S H I O N</span>
-    </a>
-    <button onclick="toggleModal('adminModal')" class="text-xs uppercase tracking-wider bg-brand-dark text-white px-4 py-2 rounded flex items-center space-x-2">
-      <i data-lucide="user-check" class="w-4 h-4"></i><span id="adminBtnText">Owner Access</span>
-    </button>
-  </nav>
+<body>
 
-  <!-- Hero Section -->
-  <section class="py-16 px-6 text-center max-w-4xl mx-auto">
-    <span class="text-xs tracking-[0.3em] uppercase text-stone-500 block mb-3">&mdash; THE EXECUTIVE COLLECTION 2026 &mdash;</span>
-    <h1 class="text-5xl md:text-7xl font-normal leading-tight mb-6">Refined elegance.<br/>Rooted in tradition.</h1>
-    <p class="text-stone-600 max-w-lg mx-auto text-sm mb-8">Considered clothing for the modern gentleman. Discover elevated essentials, premium boxy fits, and everyday luxury, crafted in Chattogram.</p>
-    <a href="#collection" class="inline-block bg-brand-dark text-white text-xs uppercase tracking-[0.2em] px-8 py-4">Explore The Collection &rarr;</a>
-  </section>
+    <header>
+<header>
+  <!-- Brand title jumps back to top / home -->
+  <a href="#" class="brand-title">ORVEXAN FASHION</a>
+  
+  <ul class="nav-menu">
+    <li><a href="#collections">Collections</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#order">Order Now</a></li>
+  </ul>
+</header>
+    </header>
+    <!-- HOME / HERO SECTION -->
+    <section class="home-section" id="home">
+        <div class="home-container">
+            
+            <!-- Left Side: Motto & Call to Action -->
+            <div class="home-text">
+                <span class="brand-tagline">— MODERN CLASSIC ESSENTIALS —</span>
+                <h1>Redefining Everyday Luxury.</h1>
+                <p class="home-description">
+                    Premium hoodies, tailored polo shirts, and signature boxy-fit silhouettes. 
+                    Crafted for those who value refined minimalism and modern streetwear elegance.
+                </p>
+                <div class="home-buttons">
+                    <a href="#collections" class="btn-primary">Explore Collection →</a>
+                </div>
+            </div>
 
-  <!-- Collection Section -->
-  <section id="collection" class="max-w-7xl mx-auto px-6 py-12 w-full">
-    <div class="flex justify-between items-end mb-10 border-b border-stone-300 pb-4">
-      <div><h2 class="text-3xl font-serif">Curated Collection</h2><p class="text-xs text-stone-500 uppercase mt-1">DIRECT FROM CHATTOGRAM ATELIER</p></div>
-      <span id="itemCount" class="text-xs text-stone-500">0 Items Available</span>
-    </div>
-    <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-  </section>
+            <!-- Right Side: Hoodie Product Image -->
+            <div class="home-image-box">
+                <!-- Change "hoodie.png" to match your hoodie image filename later -->
+                <img src="Hoodie.jpeg" alt="Orvexan Premium Hoodie">
+            </div>
 
-  <!-- Founder Section -->
-  <section id="founder" class="bg-brand-card py-16 px-6 my-12 border-y border-stone-300">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-      <div class="relative group">
-        <img id="founderImgDisplay" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Sarjin Nowshad" class="w-full rounded shadow-xl object-cover max-h-[500px]">
-        <label for="founderPhotoInput" class="absolute bottom-4 right-4 bg-brand-dark text-white text-[10px] uppercase tracking-widest px-3 py-1 cursor-pointer hover:bg-stone-800">Change Founder Photo</label>
-        <input type="file" id="founderPhotoInput" accept="image/*" class="hidden" onchange="uploadFounderPhoto(event)">
-      </div>
-      <div>
-        <span class="text-xs tracking-[0.3em] uppercase text-stone-500 block mb-2">The Visionary Behind ORVEXAN</span>
-        <h2 class="text-4xl font-serif mb-4">Sarjin Nowshad</h2>
-        <p class="text-stone-600 text-sm leading-relaxed mb-6">"At ORVEXAN, fashion isn't just about garments; it's about confidence, precision, and timeless distinction. Every stitch and fabric in our collection is selected to bring affordable luxury to Chattogram and beyond."</p>
-        <div class="space-y-2 text-xs text-stone-600">
-          <p><strong>Official Email:</strong> sarjinnowshad897@gmail.com</p>
-          <p><strong>Headquarters:</strong> Chattogram, Bangladesh</p>
-          <p><strong>Direct Hotline:</strong> +880 1863-487214</p>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
+<!-- ABOUT US / FOUNDER SECTION -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <!-- Left Side: Founder Image Placeholder -->
+            <div class="founder-image-box">
+                <!-- Leave the src="" empty or write your image filename later, e.g., src="owner.jpg" -->
+                <img src="Sarjin-Nowshad.jpeg" alt="Sarjin Nowshad - Founder of Orvexan Fashion">
+            </div>
 
-  <!-- Footer -->
-  <footer class="bg-brand-dark text-stone-400 text-xs py-12 px-6">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-      <div><h3 class="text-white text-xl font-serif mb-4">ORVEXAN</h3><p>Luxury clothing & apparel brand based in Chattogram, Bangladesh.</p></div>
-      <div><h4 class="text-white uppercase mb-4">Customer Care</h4><p>WhatsApp: 01863487214</p><p>Email: sarzinbabu@gmail.com</p></div>
-      <div><h4 class="text-white uppercase mb-4">Connect With Us</h4>
-        <div class="flex space-x-4">
-          <a href="https://www.facebook.com/share/1DsLTn9NaJ/" target="_blank" class="hover:text-white">Facebook</a>
-          <a href="https://www.instagram.com/orvexan1?rpxt=eXhtN3poZDZuY2Zp" target="_blank" class="hover:text-white">Instagram</a>
-          <a href="https://www.tiktok.com/@orvexan0?_r=1&_t=ZS-9B9cfQZF4gW" target="_blank" class="hover:text-white">TikTok</a>
+            <!-- Right Side: Founder Bio Text -->
+            <div class="founder-info">
+                <span class="section-subtitle">THE VISIONARY</span>
+                <h2>Sarjin Nowshad</h2>
+                <p class="founder-location">Founder & Creative Director, Chittagong, Bangladesh</p>
+                <p class="founder-bio">
+                    Orvexan Fashion was born out of a relentless pursuit of elegance and individual expression. Starting this journey at an early age in Chittagong, Sarjin Nowshad combined a passion for timeless aesthetics with modern tailoring. Every piece reflects a commitment to sophisticated luxury, meticulous craftsmanship, and the belief that true style is rooted in both character and tradition.
+                </p>
+            </div>
         </div>
+    </section>
+    <!-- FEATURED COLLECTIONS SECTION -->
+<section class="collections-section" id="collections">
+  <h2 class="collections-title">Featured Collections</h2>
+  <p class="collections-subtitle">Elevated Essentials & Premium Fits</p>
+
+  <div class="collections-grid">
+    
+    <!-- 1. Hoodie (Customizable) -->
+    <div class="collection-card">
+      <div class="card-image-box">
+        <span class="custom-badge">CUSTOMIZABLE</span>
+        <img src="Hoodie.jpeg" alt="Customizable Hoodie">
       </div>
-      <div><h4 class="text-white uppercase mb-4">Store Access</h4><button onclick="toggleModal('adminModal')" class="underline">Owner Portal Login</button></div>
+      <h3>Starboy Hoodie</h3>
+      <p class="product-price">650 BDT</p>
+      <p class="product-sizes">Sizes: M, L, XL</p>
+      <p class="custom-desc"><strong>CUSTOMIZABLE:</strong> You can customize the hoodie as you want by choosing the color and sticker on the back (just the brand logo is fixed).<br><br><em>If interested in a customizable hoodie, make an order selecting "Customizable Hoodie" as the product, and we will soon contact you for your customization.</em></p>
+      <a href="#order" class="order-card-btn">Order Now &rarr;</a>
     </div>
-    <div class="border-t border-stone-800 pt-6 text-center text-stone-500">&copy; 2026 ORVEXAN FASHION. All Rights Reserved.</div>
-  </footer>
 
-  <!-- Admin Modal -->
-  <div id="adminModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center hidden">
-    <div class="bg-[#F6F3ED] p-8 rounded shadow-2xl max-w-md w-full relative border border-stone-300">
-      <button onclick="toggleModal('adminModal')" class="absolute top-4 right-4 text-stone-500"><i data-lucide="x" class="w-5 h-5"></i></button>
-      
-      <!-- Login -->
-      <div id="authSection">
-        <h3 class="text-2xl font-serif mb-2 text-center">Owner Sign In</h3>
-        <form onsubmit="handleLogin(event)" class="space-y-4">
-          <div><label class="block text-xs uppercase mb-1">Email</label><input type="email" id="loginEmail" required class="w-full p-3 border border-stone-300 text-sm bg-white"></div>
-          <div><label class="block text-xs uppercase mb-1">Password</label><input type="password" id="loginPassword" required class="w-full p-3 border border-stone-300 text-sm bg-white"></div>
-          <p id="loginError" class="text-red-500 text-xs hidden">Invalid credentials.</p>
-          <button type="submit" class="w-full bg-brand-dark text-white text-xs uppercase py-3">Sign In &rarr;</button>
-        </form>
+    <!-- 2. Boxy Fit Henley -->
+    <div class="collection-card">
+      <div class="card-image-box">
+        <img src="Boxy-Fit-Henley.jpeg" alt="Boxy Fit Henley">
       </div>
+      <h3>Boxy Fit Henley</h3>
+      <p class="product-price">400 BDT</p>
+      <p class="product-sizes">Sizes: M, L, XL</p>
+      <a href="#order" class="order-card-btn">Order Now &rarr;</a>
+    </div>
 
-      <!-- Add Product -->
-      <div id="postSection" class="hidden">
-        <div class="flex justify-between items-center mb-4"><h3 class="text-2xl font-serif">Post New Product</h3><button onclick="handleLogout()" class="text-xs text-red-600 underline">Sign Out</button></div>
-        <form onsubmit="handleAddProduct(event)" class="space-y-3">
-          <div><label class="block text-xs uppercase mb-1">Product Title</label><input type="text" id="pTitle" required class="w-full p-2 border border-stone-300 text-sm bg-white"></div>
-          <div class="grid grid-cols-2 gap-2">
-            <div><label class="block text-xs uppercase mb-1">Price (BDT)</label><input type="number" id="pPrice" required class="w-full p-2 border border-stone-300 text-sm bg-white"></div>
-            <div><label class="block text-xs uppercase mb-1">Sizes (e.g. M, L)</label><input type="text" id="pSizes" required class="w-full p-2 border border-stone-300 text-sm bg-white"></div>
-          </div>
-          <div><label class="block text-xs uppercase mb-1">Upload Product Image</label><input type="file" id="pFileInput" accept="image/*" required class="w-full p-2 border border-stone-300 text-sm bg-white"></div>
-          <div><label class="block text-xs uppercase mb-1">Details/Fabric</label><input type="text" id="pDesc" class="w-full p-2 border border-stone-300 text-sm bg-white"></div>
-          <button type="submit" class="w-full bg-brand-dark text-white text-xs uppercase py-3">Publish Product</button>
-        </form>
+    <!-- 3. Premium Boxy Fit Shirt -->
+    <div class="collection-card">
+      <div class="card-image-box">
+        <img src="Boxy-Fit-Shirt.jpeg" alt="Premium Boxy Fit Shirt">
       </div>
+      <h3>Premium Boxy Fit Shirt</h3>
+      <p class="product-price">550 BDT</p>
+      <p class="product-sizes">Sizes: M, L</p>
+      <a href="#order" class="order-card-btn">Order Now &rarr;</a>
+    </div>
+
+    <!-- 4. Sage Green Polo Shirt -->
+    <div class="collection-card">
+      <div class="card-image-box">
+        <img src="Sage-Green-Polo-Shirt.jpeg" alt="Sage Green Polo Shirt">
+      </div>
+      <h3>Sage Green Polo Shirt</h3>
+      <p class="product-price">450 BDT</p>
+      <p class="product-sizes">Sizes: L</p>
+      <a href="#order" class="order-card-btn">Order Now &rarr;</a>
+    </div>
+
+    <!-- 5. White Boxy Fit Shirt -->
+    <div class="collection-card">
+      <div class="card-image-box">
+        <img src="White-Boxy--Fit-shirt.jpeg" alt="White Boxy Fit Shirt">
+      </div>
+      <h3>White Boxy Fit Shirt</h3>
+      <p class="product-price">550 BDT</p>
+      <p class="product-sizes">Sizes: M, L</p>
+      <a href="#order" class="order-card-btn">Order Now &rarr;</a>
+    </div>
+
+    <!-- 6. White Polo Shirt -->
+    <div class="collection-card">
+      <div class="card-image-box">
+        <img src="White-Polo-shirt.jpeg" alt="White Polo Shirt">
+      </div>
+      <h3>White Polo Shirt</h3>
+      <p class="product-price">350 BDT</p>
+      <p class="product-sizes">Sizes: M</p>
+      <a href="#order" class="order-card-btn">Order Now &rarr;</a>
+    </div>
+
+  </div>
+</section>
+<!-- CASH ON DELIVERY ORDER FORM SECTION -->
+<section class="order-section" id="order">
+  <div class="order-container">
+    <h2>Place Your Order (Cash on Delivery)</h2>
+    <p class="order-subtitle">Fill out your shipping details below and pay when your package arrives.</p>
+
+    <form action="https://api.web3forms.com/submit" method="POST" class="order-form">
+  <input type="hidden" name="access_key" value="1550ca1b-89bb-426d-894f-833c796c60ab">
+  <input type="hidden" name="subject" value="New Orvexan Order Received!">
+
+  <div class="form-group">
+    <label>Selected Item & Size</label>
+    <select name="Product_And_Size" id="product-select" required>
+      <option value="">Select Item & Size...</option>
+      <option value="Customizable Hoodie - M" data-price="650">Customizable Hoodie - M (650 tk)</option>
+      <option value="Customizable Hoodie - L" data-price="650">Customizable Hoodie - L (650 tk)</option>
+      <option value="Customizable Hoodie - XL" data-price="650">Customizable Hoodie - XL (650 tk)</option>
+      <option value="Boxy Fit Henley - M" data-price="400">Boxy Fit Henley - M (400 tk)</option>
+      <option value="Boxy Fit Henley - L" data-price="400">Boxy Fit Henley - L (400 tk)</option>
+      <option value="Boxy Fit Henley - XL" data-price="400">Boxy Fit Henley - XL (400 tk)</option>
+      <option value="Premium Boxy Fit Shirt - M" data-price="550">Premium Boxy Fit Shirt - M (550 tk)</option>
+      <option value="Premium Boxy Fit Shirt - L" data-price="550">Premium Boxy Fit Shirt - L (550 tk)</option>
+      <option value="Sage Green Polo Shirt - L" data-price="450">Sage Green Polo Shirt - L (450 tk)</option>
+      <option value="White Boxy Fit Shirt - M" data-price="550">White Boxy Fit Shirt - M (550 tk)</option>
+      <option value="White Boxy Fit Shirt - L" data-price="550">White Boxy Fit Shirt - L (550 tk)</option>
+      <option value="White Polo Shirt - M" data-price="350">White Polo Shirt - M (350 tk)</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Delivery Location</label>
+    <select name="Delivery_Location" id="location-select" required>
+      <option value="">Select Delivery Location...</option>
+      <option value="Inside Chattogram" data-shipping="80">Inside Chattogram (80 BDT)</option>
+      <option value="Dhaka & Other Districts" data-shipping="150">Dhaka & Other Districts (150 BDT)</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Full Name</label>
+    <input type="text" name="Customer_Name" placeholder="e.g. Tanvir Ahmed" required>
+  </div>
+
+  <div class="form-group">
+    <label>Phone Number (for Courier Confirmation)</label>
+    <input type="tel" name="Phone_Number" placeholder="01XXXXXXXXX" required>
+  </div>
+
+  <div class="form-group">
+    <label>Full Delivery Address</label>
+    <textarea name="Delivery_Address" placeholder="Enter your full street address, area, and city" required></textarea>
+  </div>
+
+  <!-- PRICE SUMMARY BOX -->
+  <div class="price-summary-box">
+    <div class="price-row">
+      <span>Subtotal:</span>
+      <span id="product-price">0 tk</span>
+    </div>
+    <div class="price-row">
+      <span>Delivery Cost:</span>
+      <span id="shipping-price">0 tk</span>
+    </div>
+    <div class="price-row total-row">
+      <span>Total:</span>
+      <span id="total-price">0 tk</span>
     </div>
   </div>
 
-  <script>
-    let products = JSON.parse(localStorage.getItem('orvexan_v2_products')) || [];
-    let isLoggedIn = localStorage.getItem('orvexan_logged_in') === 'true';
+  <button type="submit" class="submit-btn-green">Submit Order</button>
+</form>
+  </div>
+</section>
+<!-- FOOTER SECTION -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>ORVEXAN</h3>
+      <p>Luxury clothing & apparel brand based in Chattogram, Bangladesh.</p>
+    </div>
+    
+    <div class="footer-col">
+      <h4>CUSTOMER CARE</h4>
+      <p>Email: tanvirahmed0145@proton.me</p>
+    </div>
+    
+    <div class="footer-col">
+      <h4>CONNECT WITH US</h4>
+      <p>
+        <a href="#" target="_blank">Facebook</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#" target="_blank">Instagram</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#" target="_blank">TikTok</a>
+      </p>
+    </div>
+    
+    <div class="footer-col">
+      <h4>STORE ACCESS</h4>
+      <p><a href="#">Owner Portal Login</a></p>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; ORVEXAN FASHION. All Rights Reserved.</p>
+  </div>
+</footer>
+<script>
+    const productSelect = document.getElementById('product-select');
+    const locationSelect = document.getElementById('location-select');
+    const productPriceSpan = document.getElementById('product-price');
+    const shippingPriceSpan = document.getElementById('shipping-price');
+    const totalPriceSpan = document.getElementById('total-price');
 
-    function renderProducts() {
-      const grid = document.getElementById('productGrid');
-      document.getElementById('itemCount').innerText = `${products.length} Items Available`;
-      grid.innerHTML = '';
+    function calculateTotal() {
+      const selectedProduct = productSelect.options[productSelect.selectedIndex];
+      const productPrice = parseInt(selectedProduct.getAttribute('data-price')) || 0;
 
-      if (products.length === 0) {
-        grid.innerHTML = `<div class="col-span-full text-center py-12 text-stone-500 text-sm">No products published yet. Log in via Owner Access to publish items.</div>`;
-        return;
-      }
+      const selectedLocation = locationSelect.options[locationSelect.selectedIndex];
+      const shippingFee = parseInt(selectedLocation.getAttribute('data-shipping')) || 0;
 
-      products.forEach(p => {
-        const sizes = p.sizes.map(s => `<span class="bg-stone-200 text-stone-700 px-2 py-0.5 text-[10px] rounded font-medium">${s}</span>`).join(' ');
-        const waMsg = encodeURIComponent(`Hello ORVEXAN! I am interested in purchasing "${p.title}" (Price: ${p.price} BDT).`);
-        
-        const ownerControls = isLoggedIn ? `
-          <div class="absolute top-2 right-2 flex space-x-1">
-            <label for="changeImg_${p.id}" class="bg-brand-dark/90 text-white text-[10px] uppercase px-2 py-1 rounded cursor-pointer hover:bg-black">Change Pic</label>
-            <input type="file" id="changeImg_${p.id}" accept="image/*" class="hidden" onchange="changeProductPic(event, ${p.id})">
-            <button onclick="deleteProduct(${p.id})" class="bg-red-700 text-white text-[10px] uppercase px-2 py-1 rounded hover:bg-red-800">Delete</button>
-          </div>
-        ` : '';
+      const grandTotal = productPrice + (productPrice > 0 ? shippingFee : 0);
 
-        grid.innerHTML += `
-          <div class="bg-brand-card border border-stone-300 rounded overflow-hidden flex flex-col justify-between relative">
-            <div>
-              <div class="h-80 bg-stone-300 relative">
-                <img src="${p.img}" class="w-full h-full object-cover">
-                ${ownerControls}
-              </div>
-              <div class="p-5"><h3 class="text-xl font-serif mb-1">${p.title}</h3><p class="text-xs text-stone-500 mb-3">${p.desc}</p><div class="flex items-center space-x-2 mb-4"><span class="text-xs text-stone-400 uppercase">Sizes:</span>${sizes}</div></div>
-            </div>
-            <div class="p-5 pt-0 flex items-center justify-between border-t border-stone-300/50 mt-2">
-              <span class="text-lg font-serif font-bold text-brand-dark">${p.price} BDT</span>
-              <a href="https://wa.me/8801863487214?text=${waMsg}" target="_blank" class="bg-brand-dark text-white text-[11px] uppercase tracking-wider px-4 py-2 rounded flex items-center space-x-1"><i data-lucide="message-circle" class="w-3.5 h-3.5"></i><span>Order via WhatsApp</span></a>
-            </div>
-          </div>`;
-      });
-      lucide.createIcons();
+      productPriceSpan.textContent = productPrice + ' tk';
+      shippingPriceSpan.textContent = (productPrice > 0 ? shippingFee : 0) + ' tk';
+      totalPriceSpan.textContent = grandTotal + ' tk';
     }
 
-    function toggleModal(id) { document.getElementById(id).classList.toggle('hidden'); updateAdminState(); }
-    function updateAdminState() {
-      document.getElementById('authSection').classList.toggle('hidden', isLoggedIn);
-      document.getElementById('postSection').classList.toggle('hidden', !isLoggedIn);
-      document.getElementById('adminBtnText').innerText = isLoggedIn ? "Owner Panel" : "Owner Access";
-      renderProducts();
-    }
-
-    function handleLogin(e) {
-      e.preventDefault();
-      if (document.getElementById('loginEmail').value.trim() === 'sarjinnowshad897@gmail.com' && document.getElementById('loginPassword').value.trim() === 'ayan@424@') {
-        isLoggedIn = true; localStorage.setItem('orvexan_logged_in', 'true');
-        document.getElementById('loginError').classList.add('hidden'); updateAdminState();
-      } else { document.getElementById('loginError').classList.remove('hidden'); }
-    }
-
-    function handleLogout() { isLoggedIn = false; localStorage.setItem('orvexan_logged_in', 'false'); updateAdminState(); }
-
-    function uploadFounderPhoto(e) {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = (evt) => {
-          document.getElementById('founderImgDisplay').src = evt.target.result;
-          localStorage.setItem('orvexan_founder_photo', evt.target.result);
-        };
-        reader.readAsDataURL(file);
-      }
-    }
-
-    function changeProductPic(e, pId) {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = (evt) => {
-          const idx = products.findIndex(item => item.id === pId);
-          if (idx !== -1) {
-            products[idx].img = evt.target.result;
-            localStorage.setItem('orvexan_v2_products', JSON.stringify(products));
-            renderProducts();
-          }
-        };
-        reader.readAsDataURL(file);
-      }
-    }
-
-    function deleteProduct(pId) {
-      products = products.filter(item => item.id !== pId);
-      localStorage.setItem('orvexan_v2_products', JSON.stringify(products));
-      renderProducts();
-    }
-
-    function handleAddProduct(e) {
-      e.preventDefault();
-      const fileInput = document.getElementById('pFileInput');
-      const file = fileInput.files[0];
-      if (!file) return;
-
-      const reader = new FileReader();
-      reader.onload = (evt) => {
-        products.unshift({
-          id: Date.now(),
-          title: document.getElementById('pTitle').value,
-          price: Number(document.getElementById('pPrice').value),
-          sizes: document.getElementById('pSizes').value.split(',').map(s => s.trim().toUpperCase()),
-          img: evt.target.result,
-          desc: document.getElementById('pDesc').value || "Premium ORVEXAN Apparel"
-        });
-        localStorage.setItem('orvexan_v2_products', JSON.stringify(products));
-        renderProducts();
-        e.target.reset();
-        alert("Product published successfully!");
-      };
-      reader.readAsDataURL(file);
-    }
-
-    window.onload = () => {
-      const savedFounderPhoto = localStorage.getItem('orvexan_founder_photo');
-      if (savedFounderPhoto) document.getElementById('founderImgDisplay').src = savedFounderPhoto;
-      renderProducts();
-      lucide.createIcons();
-    };
+    productSelect.addEventListener('change', calculateTotal);
+    locationSelect.addEventListener('change', calculateTotal);
   </script>
 </body>
-</html>
