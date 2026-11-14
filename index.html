@@ -245,8 +245,8 @@
 
 .collections-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 35px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -268,8 +268,23 @@
   height: 380px;
   overflow: hidden;
   border-radius: 6px;
-  margin-bottom: 18px;
-  background-color: #1a1a1a;
+}
+
+/* Mobile 2-Column Layout */
+@media (max-width: 768px) {
+  .collections-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 0 10px;
+  }
+
+  .collection-card {
+    padding: 12px;
+  }
+
+  .card-image-box {
+    height: 190px; /* Proportional height for 2-column mobile cards */
+  }
 }
 
 .card-image-box img {
@@ -510,6 +525,25 @@
   letter-spacing: 1px;
   color: #666666;
   text-transform: uppercase;
+}
+/* --- Mobile Responsive Fixes --- */
+@media (max-width: 768px) {
+  /* Force hero section and owner section to stack vertically on phones */
+  header, .hero-section, .about-section, .product-container {
+    flex-direction: column !important;
+    text-align: center;
+  }
+  
+  /* Make images full width and properly proportioned on mobile */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Adjust padding and container widths for mobile screens */
+  body {
+    overflow-x: hidden;
+  }
 }
     </style>
 </head>
@@ -778,4 +812,57 @@
     productSelect.addEventListener('change', calculateTotal);
     locationSelect.addEventListener('change', calculateTotal);
   </script>
+  <!-- Winter Special Welcome Modal -->
+<div id="winterModal" style="display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.75); z-index: 9999; align-items: center; justify-content: center; padding: 20px;">
+  <div style="background: #141414; color: #f5f2eb; max-width: 620px; width: 100%; border-radius: 12px; border: 1px solid #2e2e2e; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); font-family: inherit;">
+    
+    <!-- Heading Title -->
+    <div style="padding: 20px 24px 12px; border-bottom: 1px solid #262626;">
+      <h2 style="margin: 0; font-size: 1.5rem; letter-spacing: 0.5px; color: #7dd3fc;">Winter Special ❄️</h2>
+    </div>
+
+    <!-- Core / Mid Section: Photo Left, Text Right -->
+    <div style="display: flex; flex-wrap: wrap; padding: 24px; gap: 20px; align-items: center;">
+      <div style="flex: 1 1 200px; max-width: 240px;">
+        <img src="Hoodie.jpeg" alt="Customizable Hoodie" style="width: 100%; height: auto; border-radius: 8px; display: block; object-fit: cover;">
+      </div>
+      <div style="flex: 1 1 260px;">
+        <p style="margin: 0; font-size: 1rem; line-height: 1.6; color: #d6d3cd;">
+          <strong style="color: #f5f2eb;">Customizable Hoodie</strong> - if you are interested order our customizable hoodie from our store. We will soon contact you for your customization. <br>(কাস্টমাইজেবল হুডি—আপনি যদি আগ্রহী হন, তবে আমাদের স্টোর থেকে আমাদের কাস্টমাইজযোগ্য হুডিটি অর্ডার করুন। আপনার পছন্দমতো কাস্টমাইজেশনের বিষয়ে আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।)
+        </p>
+      </div>
+    </div>
+
+    <!-- Bottom Right Buttons -->
+    <div style="padding: 16px 24px 22px; display: flex; justify-content: flex-end; gap: 12px; background: #101010; border-top: 1px solid #262626;">
+      <button onclick="closeWinterModal()" style="background: #ffffff; color: #111111; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.9rem;">
+        Cancel
+      </button>
+      <button onclick="orderWinterSpecial()" style="background: #f3ede0; color: #111111; border: none; padding: 10px 22px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.9rem;">
+        Order Now
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Show popup automatically when the website opens
+  window.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('winterModal').style.display = 'flex';
+  });
+
+  function closeWinterModal() {
+    document.getElementById('winterModal').style.display = 'none';
+  }
+
+  function orderWinterSpecial() {
+    closeWinterModal();
+    // Scrolls smoothly to your order section if it has an id="order" or #collections
+    const orderSection = document.querySelector('#order, #collections, form');
+    if (orderSection) {
+      orderSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script>
 </body>
