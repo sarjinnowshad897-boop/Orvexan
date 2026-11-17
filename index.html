@@ -162,6 +162,126 @@
             gap: 60px;
             align-items: center;
         }
+        /* Left-Side Navy Blue Auth / Profile Button */
+.auth-nav-btn {
+  background-color: #000080;
+  color: #ffffff;
+  border: none;
+  padding: 9px 16px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.2s ease;
+}
+
+.auth-nav-btn:hover {
+  opacity: 0.9;
+}
+
+.auth-nav-btn img {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ffffff;
+}
+
+/* Auth & Profile Modals */
+.auth-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.auth-modal-box {
+  background: #faf8f5;
+  color: #222222;
+  width: 100%;
+  max-width: 380px;
+  padding: 28px 24px;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.auth-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #666;
+}
+
+.auth-modal-box h3 {
+  font-family: Georgia, serif;
+  margin-bottom: 8px;
+  font-size: 22px;
+}
+
+.auth-modal-box p {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 11px 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.auth-submit-btn {
+  width: 100%;
+  background-color: #000080;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Profile Pic Upload & Preview */
+.pic-upload-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid #000080;
+  margin: 0 auto 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eae5de;
+  cursor: pointer;
+  font-size: 12px;
+  color: #444;
+}
+
+.pic-upload-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
         /* Image Box Placeholder Styling */
         .founder-image-box {
@@ -550,12 +670,11 @@
     <header>
   <!-- Brand title jumps back to top / home -->
   <a href="#" class="brand-title">ORVEXAN FASHION</a>
-  
-  <ul class="nav-menu">
-    <li><a href="#collections">Collections</a></li>
-    <li><a href="#about">About Us</a></li>
-    <li><a href="#order">Order Now</a></li>
-  </ul>
+
+  <!-- Right-Side Navy Blue Sign Up / Profile Button -->
+  <button id="mainAuthBtn" class="auth-nav-btn" onclick="handleAuthBtnClick()">
+    Sign Up / Log In
+  </button>
 </header>
     <!-- HOME / HERO SECTION -->
     <section class="home-section" id="home">
@@ -582,26 +701,7 @@
 
         </div>
     </section>
-<!-- ABOUT US / FOUNDER SECTION -->
-    <section class="about-section" id="about">
-        <div class="about-container">
-            <!-- Left Side: Founder Image Placeholder -->
-            <div class="founder-image-box">
-                <!-- Leave the src="" empty or write your image filename later, e.g., src="owner.jpg" -->
-                <img src="Sarjin-Nowshad.jpeg" alt="Sarjin Nowshad - Founder of Orvexan Fashion">
-            </div>
 
-            <!-- Right Side: Founder Bio Text -->
-            <div class="founder-info">
-                <span class="section-subtitle">THE VISIONARY</span>
-                <h2>Sarjin Nowshad</h2>
-                <p class="founder-location">Founder & Creative Director, Chittagong, Bangladesh</p>
-                <p class="founder-bio">
-                    Orvexan Fashion was born out of a relentless pursuit of elegance and individual expression. Starting this journey at an early age in Chittagong, Sarjin Nowshad combined a passion for timeless aesthetics with modern tailoring.
-                </p>
-            </div>
-        </div>
-    </section>
     <!-- FEATURED COLLECTIONS SECTION -->
 <section class="collections-section" id="collections">
   <h2 class="collections-title">Featured Collections</h2>
@@ -752,6 +852,28 @@
 </form>
   </div>
 </section>
+
+<!-- ABOUT US / FOUNDER SECTION -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <!-- Left Side: Founder Image Placeholder -->
+            <div class="founder-image-box">
+                <!-- Leave the src="" empty or write your image filename later, e.g., src="owner.jpg" -->
+                <img src="Sarjin-Nowshad.jpeg" alt="Sarjin Nowshad - Founder of Orvexan Fashion">
+            </div>
+
+            <!-- Right Side: Founder Bio Text -->
+            <div class="founder-info">
+                <span class="section-subtitle">THE VISIONARY</span>
+                <h2>Sarjin Nowshad</h2>
+                <p class="founder-location">Founder & Creative Director, Chittagong, Bangladesh</p>
+                <p class="founder-bio">
+                    Orvexan Fashion was born out of a relentless pursuit of elegance and individual expression. Starting this journey at an early age in Chittagong, Sarjin Nowshad combined a passion for timeless aesthetics with modern tailoring.
+                </p>
+            </div>
+        </div>
+    </section>
+
 <!-- FOOTER SECTION -->
 <footer class="site-footer">
   <div class="footer-container">
@@ -844,5 +966,198 @@
 
   </div>
 </div>
+</script>
+<!-- 1. Phone & OTP Verification Modal -->
+<div id="phoneAuthModal" class="auth-modal-overlay">
+  <div class="auth-modal-box">
+    <span class="auth-close" onclick="closeAllAuthModals()">&times;</span>
+    <h3>Sign Up / Log In</h3>
+    <p>Enter your phone number with country code (e.g., +88017...)</p>
+    
+    <div id="phoneStep">
+      <input type="tel" id="phoneNumberInput" class="auth-input" placeholder="+8801XXXXXXXXX">
+      <div id="recaptcha-container" style="margin-bottom: 12px;"></div>
+      <button class="auth-submit-btn" onclick="sendOTP()">Send Verification Code</button>
+    </div>
+
+    <div id="otpStep" style="display:none;">
+      <p>Check your phone and paste the 6-digit code below:</p>
+      <input type="text" id="otpCodeInput" class="auth-input" placeholder="123456" maxlength="6">
+      <button class="auth-submit-btn" onclick="verifyOTP()">Verify & Continue</button>
+    </div>
+  </div>
+</div>
+
+<!-- 2. Profile Setup Modal (Username + Optional Pic) -->
+<div id="setupProfileModal" class="auth-modal-overlay">
+  <div class="auth-modal-box">
+    <h3>Complete Your Profile</h3>
+    <p>Choose a username. Adding a profile photo is optional.</p>
+    
+    <!-- Clicking opens PC file explorer or Phone gallery -->
+    <label for="profilePicInput" class="pic-upload-circle" id="setupPicPreview">
+      <span>+ Add Photo</span>
+    </label>
+    <input type="file" id="profilePicInput" accept="image/*" style="display:none;" onchange="previewSelectedPic(event)">
+    
+    <input type="text" id="usernameInput" class="auth-input" placeholder="Enter your username" required>
+    <button class="auth-submit-btn" onclick="saveUserProfile()">Save Profile</button>
+  </div>
+</div>
+
+<!-- 3. View Profile Modal (When logged in) -->
+<div id="viewProfileModal" class="auth-modal-overlay">
+  <div class="auth-modal-box">
+    <span class="auth-close" onclick="closeAllAuthModals()">&times;</span>
+    <div class="pic-upload-circle" id="viewProfilePic"></div>
+    <h3 id="viewProfileUsername">Username</h3>
+    <p id="viewProfilePhone">+880...</p>
+    <button class="auth-submit-btn" style="background:#333; margin-top:10px;" onclick="logoutUser()">Log Out</button>
+  </div>
+</div>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+
+<script>
+  // REPLACE WITH YOUR FIREBASE CONFIG
+const firebaseConfig = {
+    apiKey: "AIzaSyD_8Imsc0qrJfq_ROTOQSKAoXei31abMQU",
+    authDomain: "orvexan-fashion.firebaseapp.com",
+    projectId: "orvexan-fashion",
+    storageBucket: "orvexan-fashion.firebasestorage.app",
+    messagingSenderId: "368377013327",
+    appId: "1:368377013327:web:27e3dc842a2199b5b3b63a",
+    measurementId: "G-YD5KVZ3WBZ"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  let confirmationResult = null;
+  let selectedPhotoBase64 = "";
+
+  // Default silhouette avatar if user skips photo
+  const defaultAvatar = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23777'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E";
+
+  window.onload = function() {
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+      'size': 'normal'
+    });
+    checkSavedUser();
+  };
+
+  function handleAuthBtnClick() {
+    const savedUser = JSON.parse(localStorage.getItem('orvexanUser'));
+    if (savedUser) {
+      // Open Profile View
+      document.getElementById('viewProfileUsername').innerText = savedUser.username;
+      document.getElementById('viewProfilePhone').innerText = savedUser.phone;
+      document.getElementById('viewProfilePic').innerHTML = `<img src="${savedUser.photo || defaultAvatar}" alt="Profile">`;
+      document.getElementById('viewProfileModal').style.display = 'flex';
+    } else {
+      // Open Sign Up / Log In
+      document.getElementById('phoneStep').style.display = 'block';
+      document.getElementById('otpStep').style.display = 'none';
+      document.getElementById('phoneAuthModal').style.display = 'flex';
+    }
+  }
+
+  function closeAllAuthModals() {
+    document.getElementById('phoneAuthModal').style.display = 'none';
+    document.getElementById('setupProfileModal').style.display = 'none';
+    document.getElementById('viewProfileModal').style.display = 'none';
+  }
+
+function sendOTP() {
+    const phoneNumber = document.getElementById('phoneNumberInput').value.trim();
+    if (!phoneNumber.startsWith('+')) {
+      alert("Please include your country code (e.g., +88017...)");
+      return;
+    }
+    auth.signInWithPhoneNumber(phoneNumber, window.recaptchaVerifier)
+      .then((result) => {
+        confirmationResult = result;
+        document.getElementById('phoneStep').style.display = 'none';
+        document.getElementById('otpStep').style.display = 'block';
+      })
+      .catch((error) => {
+        alert("Error sending code: " + error.message);
+        if (window.recaptchaVerifier) {
+          window.recaptchaVerifier.clear();
+          window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+            'size': 'normal'
+          });
+        }
+      });
+  }
+
+  function verifyOTP() {
+    const code = document.getElementById('otpCodeInput').value.trim();
+    confirmationResult.confirm(code)
+      .then((result) => {
+        const user = result.user;
+        document.getElementById('phoneAuthModal').style.display = 'none';
+        
+        // Check if returning user already has profile saved locally
+        const existing = JSON.parse(localStorage.getItem('orvexanUser'));
+        if (existing && existing.phone === user.phoneNumber) {
+          checkSavedUser();
+        } else {
+          // Open Username + Optional Photo setup popup
+          window.tempVerifiedPhone = user.phoneNumber;
+          document.getElementById('setupProfileModal').style.display = 'flex';
+        }
+      })
+      .catch(() => {
+        alert("Invalid verification code. Please check your phone and try again.");
+      });
+  }
+
+  function previewSelectedPic(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      selectedPhotoBase64 = e.target.result;
+      document.getElementById('setupPicPreview').innerHTML = `<img src="${selectedPhotoBase64}" alt="Preview">`;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function saveUserProfile() {
+    const username = document.getElementById('usernameInput').value.trim();
+    if (!username) {
+      alert("Please enter a username to continue.");
+      return;
+    }
+    const userData = {
+      phone: window.tempVerifiedPhone || auth.currentUser.phoneNumber,
+      username: username,
+      photo: selectedPhotoBase64 // Empty string if user skipped photo
+    };
+    localStorage.setItem('orvexanUser', JSON.stringify(userData));
+    closeAllAuthModals();
+    checkSavedUser();
+  }
+
+  function checkSavedUser() {
+    const savedUser = JSON.parse(localStorage.getItem('orvexanUser'));
+    const btn = document.getElementById('mainAuthBtn');
+    if (savedUser) {
+      const picSrc = savedUser.photo || defaultAvatar;
+      btn.innerHTML = `<img src="${picSrc}" alt="Profile"> <span>Profile</span>`;
+    } else {
+      btn.innerHTML = `Sign Up / Log In`;
+    }
+  }
+
+  function logoutUser() {
+    auth.signOut();
+    localStorage.removeItem('orvexanUser');
+    selectedPhotoBase64 = "";
+    closeAllAuthModals();
+    checkSavedUser();
+  }
 </script>
 </body>
