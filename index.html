@@ -103,6 +103,173 @@
             letter-spacing: 1px;
         }
 
+/* Header Auth Button & Profile Badge */
+.auth-nav-btn {
+  background-color: #000080;
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.auth-nav-btn:hover {
+  opacity: 0.9;
+}
+
+.user-profile-badge {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 30px;
+  border: 1px solid #000000;
+  background: #ffffff;
+}
+
+.user-profile-badge img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #000000;
+}
+
+.user-profile-badge span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111111;
+}
+
+/* Modal Overlay & Box */
+.orvexan-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.orvexan-modal-box {
+  background: #fdfbf7;
+  width: 100%;
+  max-width: 400px;
+  padding: 28px 24px;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  font-family: inherit;
+}
+
+.orvexan-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #444444;
+}
+
+.orvexan-modal-box h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  color: #1a1a1a;
+}
+
+.orvexan-modal-box p {
+  margin: 0 0 18px;
+  font-size: 13px;
+  color: #555555;
+}
+
+.orvexan-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+
+.orvexan-btn-primary {
+  width: 100%;
+  padding: 12px;
+  background-color: #000080;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.orvexan-btn-secondary {
+  width: 100%;
+  padding: 11px;
+  background-color: #ffffff;
+  color: #000080;
+  border: 1px solid #000080;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+}
+
+.orvexan-btn-danger {
+  width: 100%;
+  padding: 10px;
+  background-color: #b00020;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Profile Picture Upload Preview */
+.avatar-upload-wrapper {
+  margin: 12px auto 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar-preview-circle {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid #000000;
+  background: #eae6df;
+}
+
+.file-upload-label {
+  font-size: 13px;
+  color: #000080;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 600;
+}
+
         .home-description {
             font-size: 15px;
             line-height: 1.8;
@@ -162,126 +329,6 @@
             gap: 60px;
             align-items: center;
         }
-        /* Left-Side Navy Blue Auth / Profile Button */
-.auth-nav-btn {
-  background-color: #000080;
-  color: #ffffff;
-  border: none;
-  padding: 9px 16px;
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  border-radius: 4px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: opacity 0.2s ease;
-}
-
-.auth-nav-btn:hover {
-  opacity: 0.9;
-}
-
-.auth-nav-btn img {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid #ffffff;
-}
-
-/* Auth & Profile Modals */
-.auth-modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  z-index: 9999;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-}
-
-.auth-modal-box {
-  background: #faf8f5;
-  color: #222222;
-  width: 100%;
-  max-width: 380px;
-  padding: 28px 24px;
-  border-radius: 8px;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-.auth-close {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  font-size: 22px;
-  cursor: pointer;
-  color: #666;
-}
-
-.auth-modal-box h3 {
-  font-family: Georgia, serif;
-  margin-bottom: 8px;
-  font-size: 22px;
-}
-
-.auth-modal-box p {
-  font-size: 13px;
-  color: #555;
-  margin-bottom: 18px;
-}
-
-.auth-input {
-  width: 100%;
-  padding: 11px 12px;
-  margin-bottom: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-.auth-submit-btn {
-  width: 100%;
-  background-color: #000080;
-  color: #ffffff;
-  border: none;
-  padding: 12px;
-  font-size: 13px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-/* Profile Pic Upload & Preview */
-.pic-upload-circle {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  border: 2px solid #000080;
-  margin: 0 auto 12px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #eae5de;
-  cursor: pointer;
-  font-size: 12px;
-  color: #444;
-}
-
-.pic-upload-circle img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
         /* Image Box Placeholder Styling */
         .founder-image-box {
@@ -672,9 +719,16 @@
   <a href="#" class="brand-title">ORVEXAN FASHION</a>
 
   <!-- Right-Side Navy Blue Sign Up / Profile Button -->
-  <button id="mainAuthBtn" class="auth-nav-btn" onclick="handleAuthBtnClick()">
+<div id="header-auth-container">
+  <button id="open-auth-btn" class="auth-nav-btn" onclick="openAuthModal()">
     Sign Up / Log In
   </button>
+
+  <div id="user-profile-badge" class="user-profile-badge" onclick="openProfileView()">
+    <img id="header-avatar" src="https://via.placeholder.com/80/000080/ffffff?text=U" alt="User" />
+    <span id="header-username">Member</span>
+  </div>
+</div>
 </header>
     <!-- HOME / HERO SECTION -->
     <section class="home-section" id="home">
@@ -966,63 +1020,58 @@
 
   </div>
 </div>
-</script>
-<!-- 1. Phone & OTP Verification Modal -->
-<div id="phoneAuthModal" class="auth-modal-overlay">
-  <div class="auth-modal-box">
-    <span class="auth-close" onclick="closeAllAuthModals()">&times;</span>
-    <h3>Sign Up / Log In</h3>
-    <p>Enter your phone number with country code (e.g., +88017...)</p>
-    
-    <div id="phoneStep">
-      <input type="tel" id="phoneNumberInput" class="auth-input" placeholder="+8801XXXXXXXXX">
-      <div id="recaptcha-container" style="margin-bottom: 12px;"></div>
-      <button class="auth-submit-btn" onclick="sendOTP()">Send Verification Code</button>
+
+<!-- Auth & Profile Modal -->
+<div id="orvexan-auth-modal" class="orvexan-modal-overlay">
+  <div class="orvexan-modal-box">
+    <button class="orvexan-modal-close" onclick="closeAuthModal()">&times;</button>
+
+    <!-- STEP 1: Email & Password Sign Up / Log In -->
+<div id="auth-step-credentials">
+  <h2 id="auth-modal-title">Create Account</h2>
+  <p id="auth-modal-subtitle">Use your email and create a password (min. 6 characters)</p>
+  
+  <input type="email" id="auth-email" class="orvexan-input" placeholder="Email address" />
+  <input type="password" id="auth-password" class="orvexan-input" placeholder="Create a password" />
+  
+  <button type="button" id="auth-submit-btn" class="orvexan-btn-primary" onclick="submitAuthForm()">
+    CREATE ACCOUNT
+  </button>
+
+  <p style="margin-top: 12px; font-size: 13px;">
+    <span id="auth-toggle-text">Already have an account?</span>
+    <a href="javascript:void(0)" id="auth-toggle-link" onclick="toggleAuthMode()" style="color: #000080; font-weight: 600; text-decoration: underline;">
+      Log In
+    </a>
+  </p>
+</div>
+
+    <!-- STEP 2: Profile Setup / Edit Profile -->
+    <div id="auth-step-profile" style="display: none;">
+      <h2 id="profile-modal-title">Complete Your Profile</h2>
+      <p id="profile-modal-subtitle">Choose a display name and optional profile photo</p>
+
+      <div class="avatar-upload-wrapper">
+        <img id="modal-avatar-preview" class="avatar-preview-circle" src="https://via.placeholder.com/80/000080/ffffff?text=O" alt="Avatar Preview" />
+        <label for="avatar-file-input" class="file-upload-label">Upload Photo (Optional)</label>
+        <input type="file" id="avatar-file-input" accept="image/*" style="display: none;" onchange="previewAvatarFile(event)" />
+      </div>
+
+      <input type="text" id="profile-username-input" class="orvexan-input" placeholder="Your Name / Username" />
+      <input type="tel" id="profile-phone-input" class="orvexan-input" placeholder="Phone Number for Delivery (Optional)" />
+
+      <button type="button" class="orvexan-btn-primary" onclick="saveUserProfile()">SAVE PROFILE</button>
+      <button type="button" id="logout-btn" class="orvexan-btn-danger" style="display: none;" onclick="handleLogOut()">LOG OUT</button>
     </div>
-
-    <div id="otpStep" style="display:none;">
-      <p>Check your phone and paste the 6-digit code below:</p>
-      <input type="text" id="otpCodeInput" class="auth-input" placeholder="123456" maxlength="6">
-      <button class="auth-submit-btn" onclick="verifyOTP()">Verify & Continue</button>
-    </div>
   </div>
 </div>
-
-<!-- 2. Profile Setup Modal (Username + Optional Pic) -->
-<div id="setupProfileModal" class="auth-modal-overlay">
-  <div class="auth-modal-box">
-    <h3>Complete Your Profile</h3>
-    <p>Choose a username. Adding a profile photo is optional.</p>
-    
-    <!-- Clicking opens PC file explorer or Phone gallery -->
-    <label for="profilePicInput" class="pic-upload-circle" id="setupPicPreview">
-      <span>+ Add Photo</span>
-    </label>
-    <input type="file" id="profilePicInput" accept="image/*" style="display:none;" onchange="previewSelectedPic(event)">
-    
-    <input type="text" id="usernameInput" class="auth-input" placeholder="Enter your username" required>
-    <button class="auth-submit-btn" onclick="saveUserProfile()">Save Profile</button>
-  </div>
-</div>
-
-<!-- 3. View Profile Modal (When logged in) -->
-<div id="viewProfileModal" class="auth-modal-overlay">
-  <div class="auth-modal-box">
-    <span class="auth-close" onclick="closeAllAuthModals()">&times;</span>
-    <div class="pic-upload-circle" id="viewProfilePic"></div>
-    <h3 id="viewProfileUsername">Username</h3>
-    <p id="viewProfilePhone">+880...</p>
-    <button class="auth-submit-btn" style="background:#333; margin-top:10px;" onclick="logoutUser()">Log Out</button>
-  </div>
-</div>
-
-<!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<!-- Firebase App & Auth SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 
 <script>
-  // REPLACE WITH YOUR FIREBASE CONFIG
-const firebaseConfig = {
+  // Initialize Firebase with your exact config
+  const firebaseConfig = {
     apiKey: "AIzaSyD_8Imsc0qrJfq_ROTOQSKAoXei31abMQU",
     authDomain: "orvexan-fashion.firebaseapp.com",
     projectId: "orvexan-fashion",
@@ -1032,132 +1081,213 @@ const firebaseConfig = {
     measurementId: "G-YD5KVZ3WBZ"
   };
 
-  firebase.initializeApp(firebaseConfig);
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
   const auth = firebase.auth();
-  let confirmationResult = null;
-  let selectedPhotoBase64 = "";
 
-  // Default silhouette avatar if user skips photo
-  const defaultAvatar = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23777'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E";
+  let selectedAvatarBase64 = "";
+  const DEFAULT_AVATAR = "https://via.placeholder.com/80/000080/ffffff?text=O";
 
-  window.onload = function() {
-    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
-      'size': 'normal'
-    });
-    checkSavedUser();
-  };
-
-  function handleAuthBtnClick() {
-    const savedUser = JSON.parse(localStorage.getItem('orvexanUser'));
-    if (savedUser) {
-      // Open Profile View
-      document.getElementById('viewProfileUsername').innerText = savedUser.username;
-      document.getElementById('viewProfilePhone').innerText = savedUser.phone;
-      document.getElementById('viewProfilePic').innerHTML = `<img src="${savedUser.photo || defaultAvatar}" alt="Profile">`;
-      document.getElementById('viewProfileModal').style.display = 'flex';
-    } else {
-      // Open Sign Up / Log In
-      document.getElementById('phoneStep').style.display = 'block';
-      document.getElementById('otpStep').style.display = 'none';
-      document.getElementById('phoneAuthModal').style.display = 'flex';
-    }
+  // Modal Controls
+  function openAuthModal() {
+    document.getElementById("auth-step-credentials").style.display = "block";
+    document.getElementById("auth-step-profile").style.display = "none";
+    document.getElementById("orvexan-auth-modal").style.display = "flex";
   }
 
-  function closeAllAuthModals() {
-    document.getElementById('phoneAuthModal').style.display = 'none';
-    document.getElementById('setupProfileModal').style.display = 'none';
-    document.getElementById('viewProfileModal').style.display = 'none';
+  function closeAuthModal() {
+    document.getElementById("orvexan-auth-modal").style.display = "none";
   }
 
-function sendOTP() {
-    const phoneNumber = document.getElementById('phoneNumberInput').value.trim();
-    if (!phoneNumber.startsWith('+')) {
-      alert("Please include your country code (e.g., +88017...)");
-      return;
-    }
-    auth.signInWithPhoneNumber(phoneNumber, window.recaptchaVerifier)
-      .then((result) => {
-        confirmationResult = result;
-        document.getElementById('phoneStep').style.display = 'none';
-        document.getElementById('otpStep').style.display = 'block';
+// Create a new account & send verification link
+let isSignUpMode = true;
+
+function toggleAuthMode() {
+  isSignUpMode = !isSignUpMode;
+
+  document.getElementById("auth-modal-title").innerText = isSignUpMode ? "Create Account" : "Log In";
+  document.getElementById("auth-modal-subtitle").innerText = isSignUpMode
+    ? "Use your email and create a password (min. 6 characters)"
+    : "Enter your email and password to access your profile";
+  document.getElementById("auth-password").placeholder = isSignUpMode
+    ? "Create a password"
+    : "Enter your password";
+  document.getElementById("auth-submit-btn").innerText = isSignUpMode
+    ? "CREATE ACCOUNT"
+    : "LOG IN";
+  document.getElementById("auth-toggle-text").innerText = isSignUpMode
+    ? "Already have an account?"
+    : "Don't have an account?";
+  document.getElementById("auth-toggle-link").innerText = isSignUpMode
+    ? "Log In"
+    : "Create Account";
+}
+
+function submitAuthForm() {
+  const email = document.getElementById("auth-email").value.trim();
+  const password = document.getElementById("auth-password").value;
+
+  if (!email || password.length < 6) {
+    alert("Please enter a valid email and a password of at least 6 characters.");
+    return;
+  }
+
+  if (isSignUpMode) {
+    // Sign Up Flow
+    auth.createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        userCredential.user.sendEmailVerification().then(() => {
+          alert("Verification link sent to " + email + "! Please check your inbox (or spam folder), click the link, and then Log In.");
+          auth.signOut();
+          toggleAuthMode(); // Automatically switches the modal to Log In mode for them
+        });
       })
       .catch((error) => {
-        alert("Error sending code: " + error.message);
-        if (window.recaptchaVerifier) {
-          window.recaptchaVerifier.clear();
-          window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
-            'size': 'normal'
-          });
-        }
+        alert("Sign Up Error: " + error.message);
       });
-  }
+  } else {
+    // Log In Flow
+    auth.signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        if (!userCredential.user.emailVerified) {
+          alert("Please verify your email first! Check your inbox for the verification link.");
+          auth.signOut();
+          return;
+        }
 
-  function verifyOTP() {
-    const code = document.getElementById('otpCodeInput').value.trim();
-    confirmationResult.confirm(code)
-      .then((result) => {
-        const user = result.user;
-        document.getElementById('phoneAuthModal').style.display = 'none';
-        
-        // Check if returning user already has profile saved locally
-        const existing = JSON.parse(localStorage.getItem('orvexanUser'));
-        if (existing && existing.phone === user.phoneNumber) {
-          checkSavedUser();
+        const saved = getStoredProfile(userCredential.user.uid);
+        if (saved && saved.username) {
+          applyUserToHeader(saved);
+          closeAuthModal();
         } else {
-          // Open Username + Optional Photo setup popup
-          window.tempVerifiedPhone = user.phoneNumber;
-          document.getElementById('setupProfileModal').style.display = 'flex';
+          showProfileStep(userCredential.user, true);
         }
       })
-      .catch(() => {
-        alert("Invalid verification code. Please check your phone and try again.");
+      .catch((error) => {
+        alert("Login Error: " + error.message);
       });
   }
+}
+  // Show Profile Setup or Edit View
+  function showProfileStep(user, isNewSetup) {
+    document.getElementById("auth-step-credentials").style.display = "none";
+    document.getElementById("auth-step-profile").style.display = "block";
 
-  function previewSelectedPic(event) {
+    const saved = getStoredProfile(user.uid) || {};
+    document.getElementById("profile-modal-title").innerText = isNewSetup ? "Complete Your Profile" : "Your Profile";
+    document.getElementById("profile-modal-subtitle").innerText = isNewSetup
+      ? "Choose a display name and optional profile photo"
+      : user.email;
+
+    document.getElementById("profile-username-input").value = saved.username || "";
+    document.getElementById("profile-phone-input").value = saved.phone || "";
+    selectedAvatarBase64 = saved.avatar || DEFAULT_AVATAR;
+    document.getElementById("modal-avatar-preview").src = selectedAvatarBase64;
+    document.getElementById("logout-btn").style.display = isNewSetup ? "none" : "block";
+    document.getElementById("orvexan-auth-modal").style.display = "flex";
+  }
+
+  function openProfileView() {
+    const user = auth.currentUser;
+    if (user) {
+      showProfileStep(user, false);
+    }
+  }
+
+  // Handle Image Upload from PC Explorer or Mobile Gallery
+  function previewAvatarFile(event) {
     const file = event.target.files[0];
     if (!file) return;
+
     const reader = new FileReader();
-    reader.onload = function(e) {
-      selectedPhotoBase64 = e.target.result;
-      document.getElementById('setupPicPreview').innerHTML = `<img src="${selectedPhotoBase64}" alt="Preview">`;
+    reader.onload = function (e) {
+      // Resize image slightly so it fits cleanly in localStorage
+      const img = new Image();
+      img.onload = function () {
+        const canvas = document.createElement("canvas");
+        const maxSize = 200;
+        let width = img.width;
+        let height = img.height;
+
+        if (width > height) {
+          if (width > maxSize) {
+            height *= maxSize / width;
+            width = maxSize;
+          }
+        } else {
+          if (height > maxSize) {
+            width *= maxSize / height;
+            height = maxSize;
+          }
+        }
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(img, 0, 0, width, height);
+        selectedAvatarBase64 = canvas.toDataURL("image/jpeg", 0.8);
+        document.getElementById("modal-avatar-preview").src = selectedAvatarBase64;
+      };
+      img.src = e.target.result;
     };
     reader.readAsDataURL(file);
   }
 
+  // Save Profile to localStorage & Update Header
   function saveUserProfile() {
-    const username = document.getElementById('usernameInput').value.trim();
-    if (!username) {
-      alert("Please enter a username to continue.");
-      return;
-    }
-    const userData = {
-      phone: window.tempVerifiedPhone || auth.currentUser.phoneNumber,
+    const user = auth.currentUser;
+    if (!user) return;
+
+    const username = document.getElementById("profile-username-input").value.trim() || user.email.split("@")[0];
+    const phone = document.getElementById("profile-phone-input").value.trim();
+
+    const profileData = {
       username: username,
-      photo: selectedPhotoBase64 // Empty string if user skipped photo
+      phone: phone,
+      avatar: selectedAvatarBase64 || DEFAULT_AVATAR
     };
-    localStorage.setItem('orvexanUser', JSON.stringify(userData));
-    closeAllAuthModals();
-    checkSavedUser();
+
+    localStorage.setItem("orvexan_profile_" + user.uid, JSON.stringify(profileData));
+    applyUserToHeader(profileData);
+    closeAuthModal();
   }
 
-  function checkSavedUser() {
-    const savedUser = JSON.parse(localStorage.getItem('orvexanUser'));
-    const btn = document.getElementById('mainAuthBtn');
-    if (savedUser) {
-      const picSrc = savedUser.photo || defaultAvatar;
-      btn.innerHTML = `<img src="${picSrc}" alt="Profile"> <span>Profile</span>`;
-    } else {
-      btn.innerHTML = `Sign Up / Log In`;
+  function getStoredProfile(uid) {
+    const raw = localStorage.getItem("orvexan_profile_" + uid);
+    return raw ? JSON.parse(raw) : null;
+  }
+
+  function applyUserToHeader(profileData) {
+    document.getElementById("open-auth-btn").style.display = "none";
+    document.getElementById("user-profile-badge").style.display = "flex";
+    document.getElementById("header-username").innerText = profileData.username;
+    document.getElementById("header-avatar").src = profileData.avatar || DEFAULT_AVATAR;
+
+    // Auto-fill order form name/phone if those inputs exist on your page
+    const orderName = document.querySelector('input[name="name"], #customer-name');
+    const orderPhone = document.querySelector('input[name="phone"], #customer-phone');
+    if (orderName && !orderName.value) orderName.value = profileData.username;
+    if (orderPhone && !orderPhone.value && profileData.phone) orderPhone.value = profileData.phone;
+  }
+
+  // Log Out
+  function handleLogOut() {
+    auth.signOut().then(() => {
+      document.getElementById("user-profile-badge").style.display = "none";
+      document.getElementById("open-auth-btn").style.display = "inline-block";
+      closeAuthModal();
+    });
+  }
+
+  // Keep User Logged In on Page Refresh
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      const saved = getStoredProfile(user.uid) || {
+        username: user.email.split("@")[0],
+        avatar: DEFAULT_AVATAR
+      };
+      applyUserToHeader(saved);
     }
-  }
-
-  function logoutUser() {
-    auth.signOut();
-    localStorage.removeItem('orvexanUser');
-    selectedPhotoBase64 = "";
-    closeAllAuthModals();
-    checkSavedUser();
-  }
+  });
 </script>
 </body>
+</html>
