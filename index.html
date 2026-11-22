@@ -22,7 +22,7 @@
   justify-content: space-between !important;
   align-items: center !important;
   padding: 14px 40px;
-  border-bottom: 1px solid #eae5de;
+  border-bottom: 1px solid #cdc7a6;
   width: 100%;
 }
 
@@ -59,30 +59,34 @@
         .nav-menu a:hover {
             color: #000000;
         }
-        /* Home Section Styling */
-        .home-section {
-            padding: 70px 40px;
-            background-color: #faf8f5; /* Matches top header bar color */
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 1px solid #eae5de;
-        }
+       .home-section {
+  padding: 60px 40px; /* Matches header left/right padding */
+  background-color: #faf8f5;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eae5de;
+}
 
-        .home-container {
-            display: flex;
-            max-width: 1100px;
-            width: 100%;
-            gap: 50px;
-            align-items: center;
-            justify-content: space-between;
-        }
+        /* Push hero content toward the left and right edges on desktop */
+.hero-container,
+.home-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
         /* Left Side Text Styling */
         .home-text {
-            flex: 1.1;
-        }
+  flex: 1.1;
+  max-width: 540px;
+  text-align: left;
+}
 
         .brand-tagline {
             font-size: 11px;
@@ -102,6 +106,110 @@
             margin-bottom: 20px;
             letter-spacing: 1px;
         }
+
+/* Slow-motion luxury entrance animation for hero text (unchanged) */
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-text > * {
+  opacity: 0;
+  animation: heroFadeUp 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.home-text > *:nth-child(1) { animation-delay: 0.2s; }
+.home-text > *:nth-child(2) { animation-delay: 0.55s; }
+.home-text > *:nth-child(3) { animation-delay: 0.9s; }
+.home-text > *:nth-child(4) { animation-delay: 1.25s; }
+
+/* Slow-motion left-to-right sway on the hoodie */
+@keyframes hoodieSway {
+  0%, 100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(10px) rotate(2.5deg);
+  }
+  75% {
+    transform: translateX(-10px) rotate(-2.5deg);
+  }
+}
+
+.home-section img[src*="hoodie-toon"] {
+  animation: heroFadeUp 2s cubic-bezier(0.22, 1, 0.36, 1) 0.4s backwards,
+             hoodieSway 8s ease-in-out 2.4s infinite;
+}
+
+/* Desktop Hero Layout: Text Left, Hoodie Right */
+.home-container,
+.hero-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  gap: 40px;
+}
+
+.home-text {
+  flex: 1;
+  max-width: 520px;
+  text-align: left;
+}
+
+.home-image,
+.home-img,
+.hero-image,
+.home-section > div > div:last-child {
+  margin-left: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.home-section img[src*="hoodie-toon"] {
+  max-width: 380px;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+/* Mobile Phone Screens ONLY (max-width: 768px) */
+@media (max-width: 768px) {
+  .home-section {
+    padding: 40px 20px;
+    justify-content: center;
+  }
+
+  .home-container,
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .home-text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .home-image,
+  .home-img,
+  .hero-image,
+  .home-section > div > div:last-child {
+    margin-left: 0;
+    justify-content: center;
+  }
+}
 
 /* Header Auth Button & Profile Badge */
 .auth-nav-btn {
@@ -461,22 +569,6 @@
   transform: scale(1.04);
 }
 
-/* Customizable Corner Badge */
-.custom-badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: #ffffff;
-  color: #000000;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  padding: 6px 12px;
-  border-radius: 3px;
-  z-index: 10;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-}
-
 .collection-card h3 {
   font-family: 'Georgia', serif;
   font-size: 20px;
@@ -710,10 +802,256 @@
     object-fit: cover;
   }
 }
+/* Full-Screen Product Portal View */
+.product-portal-view {
+  display: none;
+  min-height: 100vh;
+  background-color: #111111;
+  color: #ffffff;
+  padding: 20px 16px 60px;
+  box-sizing: border-box;
+}
+
+.portal-top-bar {
+  max-width: 900px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+}
+
+.portal-back-btn {
+  background: none;
+  border: 1px solid #333333;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s ease;
+}
+
+.portal-back-btn:hover {
+  background: #222222;
+}
+
+.portal-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .portal-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.portal-image-box img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #2a2a2a;
+}
+
+.portal-details-box h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.portal-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #e5c158;
+  margin-bottom: 16px;
+}
+
+.portal-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #cccccc;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+/* Daraz-Style Size Pills */
+.size-selector-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #aaaaaa;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.size-options-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.size-pill {
+  padding: 10px 20px;
+  border: 1px solid #444444;
+  background: #1a1a1a;
+  color: #ffffff;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.size-pill.active {
+  background: #000080;
+  border-color: #4d4dff;
+  color: #ffffff;
+}
+
+/* Built-In Order Box */
+.portal-order-card {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #2c2c2c;
+}
+
+.portal-order-card h3 {
+  margin: 0 0 14px;
+  font-size: 18px;
+}
+
+.portal-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: #111111;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.portal-submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: #000080;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+}
+.portal-img-card {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 4 / 5;
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: zoom-in;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portal-img-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.portal-img-card:hover img {
+  transform: scale(1.02);
+}
+
+.portal-zoom-hint {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.72);
+  color: #ffffff;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.portal-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.92);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.portal-lightbox.open {
+  display: flex;
+}
+
+.portal-lightbox img {
+  max-width: 95vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  cursor: default;
+}
+
+.portal-lightbox-close {
+  position: fixed;
+  top: 16px;
+  right: 22px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .portal-img-card {
+    max-width: 100%;
+    max-height: 360px;
+    aspect-ratio: auto;
+  }
+}
+.portal-container {
+  align-items: start;
+}
+
+.portal-container .portal-img-card {
+  margin-left: 0;
+  justify-self: end;
+}
     </style>
 </head>
 <body>
 
+<div id="main-storefront">
     <header>
   <!-- Brand title jumps back to top / home -->
   <a href="#" class="brand-title">ORVEXAN FASHION</a>
@@ -750,7 +1088,7 @@
             <!-- Right Side: Hoodie Product Image -->
             <div class="home-image-box">
                 <!-- Change "hoodie.png" to match your hoodie image filename later -->
-                <img src="Hoodie.jpeg" alt="Orvexan Premium Hoodie">
+                <img src="hoodie-toon.png" alt="Orvexan Premium Hoodie">
             </div>
 
         </div>
@@ -764,71 +1102,69 @@
   <div class="collections-grid">
     
     <!-- 1. Hoodie (Customizable) -->
-    <div class="collection-card">
-      <div class="card-image-box">
-        <span class="custom-badge">CUSTOMIZABLE</span>
-        <img src="Hoodie.jpeg" alt="Customizable Hoodie">
-      </div>
-      <h3>Starboy Hoodie</h3>
-      <p class="product-price">650 BDT</p>
-      <p class="product-sizes">Sizes: M, L, XL</p>
-      <p class="custom-desc"><strong>CUSTOMIZABLE:</strong> You can customize the hoodie as you want by choosing the color and sticker on the back (just the brand logo is fixed).<br><br><em>If interested in a customizable hoodie, make an order selecting "Customizable Hoodie" as the product, and we will soon contact you for your customization.</em></p>
-      <a href="#order" class="order-card-btn">Order Now &rarr;</a>
-    </div>
+    <div class="collection-card" onclick="openProductPortal('starboy')">
+  <div class="card-image-box">
+    <img src="Hoodie.jpeg" alt="Hoodie">
+  </div>
+  <h3>Hoodie</h3>
+  <p class="product-price">650 BDT</p>
+  <p class="product-sizes">Sizes: M, L, XL</p>
+  <a href="javascript:void(0)" class="order-card-btn">Order Now &rarr;</a>
+</div>
 
     <!-- 2. Boxy Fit Henley -->
-    <div class="collection-card">
+    <div class="collection-card" onclick="openProductPortal('henley')">
       <div class="card-image-box">
         <img src="Boxy-Fit-Henley.jpeg" alt="Boxy Fit Henley">
       </div>
       <h3>Boxy Fit Henley</h3>
       <p class="product-price">400 BDT</p>
       <p class="product-sizes">Sizes: M, L, XL</p>
-      <a href="#order" class="order-card-btn">Order Now &rarr;</a>
+      <a href="javascript:void(0)" class="order-card-btn">Order Now &rarr;</a>
     </div>
 
     <!-- 3. Premium Boxy Fit Shirt -->
-    <div class="collection-card">
+    <div class="collection-card" onclick="openProductPortal('pbfshirt')">
       <div class="card-image-box">
         <img src="Boxy-Fit-Shirt.jpeg" alt="Premium Boxy Fit Shirt">
       </div>
       <h3>Premium Boxy Fit Shirt</h3>
       <p class="product-price">550 BDT</p>
       <p class="product-sizes">Sizes: M, L</p>
-      <a href="#order" class="order-card-btn">Order Now &rarr;</a>
+      <a href="javascript:void(0)" class="order-card-btn">Order Now &rarr;</a>
     </div>
 
     <!-- 4. Sage Green Polo Shirt -->
-    <div class="collection-card">
+    <div class="collection-card" onclick="openProductPortal('sgpshirt')">
       <div class="card-image-box">
         <img src="Sage-Green-Polo-Shirt.jpeg" alt="Sage Green Polo Shirt">
       </div>
       <h3>Sage Green Polo Shirt</h3>
       <p class="product-price">450 BDT</p>
       <p class="product-sizes">Sizes: L</p>
-      <a href="#order" class="order-card-btn">Order Now &rarr;</a>
+      <a href="javascript:void(0)" class="order-card-btn">Order Now &rarr;</a>
     </div>
 
     <!-- 5. White Boxy Fit Shirt -->
-    <div class="collection-card">
+    <div class="collection-card" onclick="openProductPortal('wbfshirt')">
       <div class="card-image-box">
         <img src="White-Boxy-Fit-Shirt.jpeg" alt="White Boxy Fit Shirt">
       </div>
       <h3>White Boxy Fit Shirt</h3>
       <p class="product-price">550 BDT</p>
       <p class="product-sizes">Sizes: M, L</p>
-      <a href="#order" class="order-card-btn">Order Now &rarr;</a>
+      <a href="javascript:void(0)" class="order-card-btn">Order Now &rarr;</a>
     </div>
 
     <!-- 6. White Polo Shirt -->
-    <div class="collection-card">
+    <div class="collection-card" onclick="openProductPortal('wpshirt')">
       <div class="card-image-box">
         <img src="White-Polo-shirt.jpeg" alt="White Polo Shirt">
       </div>
       <h3>White Polo Shirt</h3>
       <p class="product-price">350 BDT</p>
       <p class="product-sizes">Sizes: M</p>
-      <a href="#order" class="order-card-btn">Order Now &rarr;</a>
+      <a href="javascript:void(0)" class="order-card-btn">Order Now &rarr;</a>
     </div>
 
   </div>
@@ -960,6 +1296,8 @@
     <p>&copy; ORVEXAN FASHION. All Rights Reserved.</p>
   </div>
 </footer>
+</div>
+
 <script>
     const productSelect = document.getElementById('product-select');
     const locationSelect = document.getElementById('location-select');
@@ -984,42 +1322,6 @@
     productSelect.addEventListener('change', calculateTotal);
     locationSelect.addEventListener('change', calculateTotal);
   </script>
-<!-- Winter Special Welcome Modal -->
-<div id="winterModal" style="display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.8); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 12px;">
-  <div style="background: #141414; color: #f5f2eb; max-width: 500px; width: 100%; max-height: 90vh; border-radius: 12px; border: 1px solid #2e2e2e; display: flex; flex-direction: column; box-shadow: 0 20px 40px rgba(0,0,0,0.6); font-family: inherit; overflow: hidden;">
-    
-    <!-- Heading Title -->
-    <div style="padding: 16px 20px; border-bottom: 1px solid #262626; flex-shrink: 0;">
-      <h2 style="margin: 0; font-size: 1.3rem; letter-spacing: 0.5px; color: #7dd3fc;">Winter special ❄️</h2>
-    </div>
-
-    <!-- Scrollable Content Section -->
-    <div style="padding: 16px 20px; overflow-y: auto; flex-grow: 1; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px;">
-      <div style="width: 100%; max-width: 220px;">
-        <img src="Hoodie.jpeg" alt="Customizable Hoodie" style="width: 100%; height: auto; border-radius: 8px; display: block; object-fit: cover;">
-      </div>
-      <div>
-        <p style="margin: 0 0 8px 0; font-size: 0.95rem; line-height: 1.5; color: #d6d3cd;">
-          <strong style="color: #f5f2eb;">Customizable Hoodie</strong> - if you are interested order our customizable hoodie from our store. We will soon contact you for your customization.
-        </p>
-        <p style="margin: 0; font-size: 0.85rem; line-height: 1.4; color: #a3a099;">
-          (কাস্টমাইজেবল হুডি—আপনি যদি আগ্রহী হন, তবে আমাদের স্টোর থেকে আমাদের কাস্টমাইজযোগ্য হুডিটি অর্ডার করুন। আপনার পছন্দমতো কাস্টমাইজেশনের বিষয়ে আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।)
-        </p>
-      </div>
-    </div>
-
-<!-- Bottom Buttons -->
-    <div style="padding: 14px 20px; display: flex; justify-content: flex-end; gap: 10px; background: #101010; border-top: 1px solid #262626; flex-shrink: 0;">
-      <button onclick="document.getElementById('winterModal').style.display='none';" style="background: #ffffff; color: #111111; border: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.85rem;">
-        Cancel
-      </button>
-      <button onclick="document.getElementById('winterModal').style.display='none'; document.querySelector('#order, #collections, form').scrollIntoView({ behavior: 'smooth' });" style="background: #f3ede0; color: #111111; border: none; padding: 8px 18px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.85rem;">
-        Order Now
-      </button>
-    </div>
-
-  </div>
-</div>
 
 <!-- Auth & Profile Modal -->
 <div id="orvexan-auth-modal" class="orvexan-modal-overlay">
@@ -1033,6 +1335,12 @@
   
   <input type="email" id="auth-email" class="orvexan-input" placeholder="Email address" />
   <input type="password" id="auth-password" class="orvexan-input" placeholder="Create a password" />
+ 
+  <div id="forgot-password-wrapper" style="display: none; text-align: right; margin: -6px 0 12px;">
+    <a href="javascript:void(0)" onclick="handleForgotPassword()" style="font-size: 12px; color: #000080; text-decoration: underline;">
+      Forgot password?
+    </a>
+  </div>
   
   <button type="button" id="auth-submit-btn" class="orvexan-btn-primary" onclick="submitAuthForm()">
     CREATE ACCOUNT
@@ -1044,6 +1352,8 @@
       Log In
     </a>
   </p>
+  <!-- Hidden in Sign Up mode; visible in Log In mode -->
+
 </div>
 
     <!-- STEP 2: Profile Setup / Edit Profile -->
@@ -1113,6 +1423,9 @@ function toggleAuthMode() {
   document.getElementById("auth-password").placeholder = isSignUpMode
     ? "Create a password"
     : "Enter your password";
+  document.getElementById("forgot-password-wrapper").style.display = isSignUpMode
+    ? "none"
+    : "block";
   document.getElementById("auth-submit-btn").innerText = isSignUpMode
     ? "CREATE ACCOUNT"
     : "LOG IN";
@@ -1124,6 +1437,23 @@ function toggleAuthMode() {
     : "Create Account";
 }
 
+function handleForgotPassword() {
+  const email = document.getElementById("auth-email").value.trim();
+
+  if (!email) {
+    alert("Please type your email address in the email box first, then click Forgot password.");
+    document.getElementById("auth-email").focus();
+    return;
+  }
+
+  auth.sendPasswordResetEmail(email)
+    .then(() => {
+      alert("Password reset link sent to " + email + "! Check your inbox (and spam folder) to set a new password.");
+    })
+    .catch((error) => {
+      alert("Reset Error: " + error.message);
+    });
+}
 function submitAuthForm() {
   const email = document.getElementById("auth-email").value.trim();
   const password = document.getElementById("auth-password").value;
@@ -1289,5 +1619,329 @@ function submitAuthForm() {
     }
   });
 </script>
+
+<!-- Dedicated Product Portal Page -->
+<section id="product-portal" class="product-portal-view">
+  <div class="portal-top-bar">
+    <button type="button" class="portal-back-btn" onclick="closeProductPortal()">
+      &#8592; Back to Store
+    </button>
+  </div>
+
+  <div class="portal-container">
+    <!-- Left: Single Carded Product Image -->
+    <div class="portal-image-box">
+      <div class="portal-img-card" onclick="openPortalLightbox()" title="Click to view full photo">
+        <img id="portal-img" src="" alt="Product Photo" />
+        <span class="portal-zoom-hint">Tap to view full photo</span>
+      </div>
+    </div>
+
+    <!-- Right: Details, Size Selector & Direct Order Form -->
+    <div class="portal-details-box">
+      <h1 id="portal-title">Product Title</h1>
+      <div id="portal-price" class="portal-price">0 BDT</div>
+
+      <!-- Size Selection (Like Daraz) -->
+      <span class="size-selector-label">Select Size:</span>
+      <div id="portal-sizes" class="size-options-row"></div>
+
+      <!-- Direct Order Form (Product is already pre-selected!) -->
+      <div class="portal-order-card">
+        <h3>Quick Order</h3>
+        <form id="portal-order-form" onsubmit="submitPortalOrder(event)">
+          <input type="text" id="portal-cust-name" class="portal-input" placeholder="Your Full Name" required />
+          <input type="tel" id="portal-cust-phone" class="portal-input" placeholder="Phone Number (e.g., 017...)" required />
+          <textarea id="portal-cust-address" class="portal-input" rows="2" placeholder="Full Delivery Address" required></textarea>
+
+          <div style="margin-bottom: 12px;">
+            <label for="portal-delivery-zone" style="display: block; margin-bottom: 6px; font-size: 13px;">
+              Delivery Location
+            </label>
+            <select id="portal-delivery-zone" class="portal-input" onchange="updatePortalTotal()" required>
+              <option value="" disabled selected>Select Delivery Location...</option>
+              <option value="80">Inside Chattogram (80 BDT)</option>
+              <option value="150">Dhaka &amp; Other Districts (150 BDT)</option>
+            </select>
+          </div>
+
+          <div id="portal-price-summary" style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 6px; margin-bottom: 14px; font-size: 14px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+              <span>Subtotal:</span>
+              <span id="portal-subtotal-text">0 BDT</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+              <span>Delivery Cost:</span>
+              <span id="portal-delivery-text">0 BDT</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 16px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 6px;">
+              <span>Total:</span>
+              <span id="portal-total-text">0 BDT</span>
+            </div>
+          </div>
+
+          <button type="submit" class="portal-submit-btn">CONFIRM ORDER</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full-Screen Photo Lightbox -->
+  <div id="portal-lightbox" class="portal-lightbox" onclick="closePortalLightbox()">
+    <button type="button" class="portal-lightbox-close" onclick="closePortalLightbox()" aria-label="Close full image">&times;</button>
+    <img id="portal-lightbox-img" src="" alt="Full Product View" onclick="event.stopPropagation()" />
+  </div>
+</section>
+
+<script>
+// 1. Store all your extra product details here (edit freely anytime!)
+const ORVEXAN_PRODUCTS = {
+  starboy: {
+    name: "Hoodie",
+    price: "650 BDT",
+    image: "Hoodie.jpeg",
+    sizes: ["M", "L", "XL"],
+  },
+  henley: {
+    name: "Boxy Fit Henley",
+    price: "400 BDT",
+    image: "Boxy-Fit-Henley.jpeg",
+    sizes: ["M", "L", "XL"],
+  },
+  pbfshirt: {
+    name: "Premium Boxy Fit Shirt",
+    price: "550 BDT",
+    image: "Boxy-Fit-Shirt.jpeg",
+    sizes: ["M", "L"],
+  },
+  sgpshirt: {
+    name: "Sage Green Polo Shirt",
+    price: "550 BDT",
+    image: "Sage-Green-Polo-Shirt.jpeg",
+    sizes: ["L"],
+  },
+  wbfshirt: {
+    name: "White Boxy Fit Shirt",
+    price: "550 BDT",
+    image: "White-Boxy-Fit-Shirt.jpeg",
+    sizes: ["M", "L"],
+  },
+  wpshirt: {
+    name: "White Polo Shirt",
+    price: "350 BDT",
+    image: "White-Polo-shirt.jpeg",
+    sizes: ["M"],
+  }
+};
+
+let activeProduct = null;
+let selectedSize = "";
+
+// 2. Open Product Portal
+function openProductPortal(productId) {
+  const product = ORVEXAN_PRODUCTS[productId];
+  if (!product) return;
+
+  activeProduct = product;
+  selectedSize = product.sizes[0]; // Default select first available size
+
+  // Populate details
+  const portalImg = document.getElementById("portal-img");
+  if (portalImg) {
+    portalImg.src = product.image;
+    portalImg.alt = product.name;
+  }
+  document.getElementById("portal-title").innerText = product.name;
+  document.getElementById("portal-price").innerText = product.price;
+
+  // Build Daraz-style size buttons
+  const sizeContainer = document.getElementById("portal-sizes");
+  sizeContainer.innerHTML = "";
+  product.sizes.forEach((size, index) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "size-pill" + (index === 0 ? " active" : "");
+    btn.innerText = size;
+    btn.onclick = function () {
+      document.querySelectorAll(".size-pill").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedSize = size;
+    };
+    sizeContainer.appendChild(btn);
+  });
+
+  // Reset delivery location & recalculate totals once
+  const zone = document.getElementById("portal-delivery-zone");
+  if (zone) zone.selectedIndex = 0;
+  if (typeof updatePortalTotal === "function") updatePortalTotal();
+
+  // Auto-fill Name & Phone if the user is logged into Firebase
+  if (typeof auth !== "undefined" && auth.currentUser && typeof getStoredProfile === "function") {
+    const saved = getStoredProfile(auth.currentUser.uid);
+    if (saved) {
+      if (saved.username) document.getElementById("portal-cust-name").value = saved.username;
+      if (saved.phone) document.getElementById("portal-cust-phone").value = saved.phone;
+    }
+  }
+
+  // Switch view & scroll to top
+  document.getElementById("main-storefront").style.display = "none";
+  document.getElementById("product-portal").style.display = "block";
+  window.scrollTo(0, 0);
+}
+
+// 3. Return to Main Homepage (Top-Left Back Arrow)
+function closeProductPortal() {
+  document.getElementById("product-portal").style.display = "none";
+  document.getElementById("main-storefront").style.display = "block";
+}
+
+function getPortalPricing() {
+  const rawPrice =
+    document.getElementById("portal-price")?.innerText ||
+    (typeof activeProduct !== "undefined" && activeProduct?.price) ||
+    "0";
+  const subtotal = Number(String(rawPrice).replace(/[^0-9.]/g, "")) || 0;
+
+  const zoneSelect = document.getElementById("portal-delivery-zone");
+  const deliveryCost = zoneSelect && zoneSelect.value ? Number(zoneSelect.value) : 0;
+  const deliveryLabel =
+    zoneSelect && zoneSelect.selectedIndex > 0
+      ? zoneSelect.options[zoneSelect.selectedIndex].text
+      : "Not selected";
+
+  const total = subtotal + deliveryCost;
+
+  return { subtotal, deliveryCost, deliveryLabel, total };
+}
+
+function updatePortalTotal() {
+  const { subtotal, deliveryCost, total } = getPortalPricing();
+
+  const subtotalEl = document.getElementById("portal-subtotal-text");
+  const deliveryEl = document.getElementById("portal-delivery-text");
+  const totalEl = document.getElementById("portal-total-text");
+
+  if (subtotalEl) subtotalEl.innerText = `${subtotal} BDT`;
+  if (deliveryEl) deliveryEl.innerText = `${deliveryCost} BDT`;
+  if (totalEl) totalEl.innerText = `${total} BDT`;
+}
+
+// 4. Handle Order Submission
+async function submitPortalOrder(event) {
+  event.preventDefault();
+
+  const form = event.target;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn ? submitBtn.innerText : "CONFIRM ORDER";
+
+  const productTitle =
+    document.getElementById("portal-title")?.innerText?.trim() ||
+    activeProduct?.name ||
+    "Orvexan Product";
+
+  const productPrice =
+    document.getElementById("portal-price")?.innerText?.trim() ||
+    activeProduct?.price ||
+    "";
+
+  const activeSizeEl = document.querySelector("#product-portal .size-pill.active");
+  const finalSize = activeSizeEl?.innerText?.trim() || selectedSize || "Not specified";
+
+  const customerName =
+    document.getElementById("portal-cust-name")?.value?.trim() ||
+    form.querySelector('input[type="text"]')?.value?.trim() ||
+    "";
+
+  const customerPhone =
+    document.getElementById("portal-cust-phone")?.value?.trim() ||
+    form.querySelector('input[type="tel"]')?.value?.trim() ||
+    "";
+
+  const customerAddress =
+    document.getElementById("portal-cust-address")?.value?.trim() ||
+    form.querySelector("textarea")?.value?.trim() ||
+    "";
+
+  const { subtotal, deliveryCost, deliveryLabel, total } = getPortalPricing();
+
+  if (!customerName || !customerPhone || !customerAddress) {
+    alert("Please fill in your name, phone number, and delivery address.");
+    return;
+  }
+
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerText = "SENDING ORDER...";
+  }
+
+  const payload = {
+    access_key: "bbcc2bbf-c9db-46a5-8bf8-a312f0ea158b",
+    subject: `New Orvexan Order: ${productTitle} (${finalSize})`,
+    from_name: "Orvexan Fashion Storefront",
+    product: productTitle,
+    price: productPrice,
+    size: finalSize,
+    delivery_location: deliveryLabel,
+    subtotal: `${subtotal} BDT`,
+    delivery_cost: `${deliveryCost} BDT`,
+    total: `${total} BDT`,
+    customer_name: customerName,
+    customer_phone: customerPhone,
+    delivery_address: customerAddress
+  };
+
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      form.reset();
+      updatePortalTotal();
+      alert(
+        `Order confirmed for ${productTitle} (Size: ${finalSize})! Total: ${total} BDT. We have received your details and will contact you shortly.`
+      );
+    } else {
+      alert(result.message || "Could not submit order. Please try again.");
+    }
+  } catch (error) {
+    console.error("Web3Forms order error:", error);
+    alert("Network error while placing order. Please check your connection and try again.");
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerText = originalBtnText;
+    }
+  }
+}
+
+function openPortalLightbox() {
+  const portalImg = document.getElementById("portal-img");
+  const lightboxImg = document.getElementById("portal-lightbox-img");
+  const lightbox = document.getElementById("portal-lightbox");
+
+  if (!portalImg || !portalImg.src || !lightbox || !lightboxImg) return;
+
+  lightboxImg.src = portalImg.src;
+  lightboxImg.alt = portalImg.alt || "Full Product View";
+  lightbox.classList.add("open");
+}
+
+function closePortalLightbox() {
+  const lightbox = document.getElementById("portal-lightbox");
+  if (lightbox) {
+    lightbox.classList.remove("open");
+  }
+}
+</script>
+
 </body>
 </html>
