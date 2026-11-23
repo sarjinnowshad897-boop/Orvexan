@@ -615,118 +615,7 @@
 .order-card-btn:hover {
   color: #e6c280;
 }
-/* Upgraded Order Section Styles */
-.order-section {
-  background-color: #faf8f5;
-  padding: 80px 20px;
-  color: #1a1a1a;
-}
 
-.order-container {
-  max-width: 650px;
-  margin: 0 auto;
-  background: #ffffff;
-  padding: 50px 40px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  border: 1px solid #eae6df;
-}
-
-.order-container h2 {
-  font-family: 'Georgia', serif;
-  font-size: 28px;
-  margin-bottom: 10px;
-  color: #111;
-  text-align: center;
-}
-
-.order-subtitle {
-  text-align: center;
-  font-size: 15px;
-  color: #666;
-  margin-bottom: 35px;
-}
-
-.order-form .form-group {
-  margin-bottom: 22px;
-}
-
-.order-form label {
-  display: block;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #333;
-  letter-spacing: 0.5px;
-}
-
-.order-form input, 
-.order-form select, 
-.order-form textarea {
-  width: 100%;
-  padding: 14px 16px;
-  font-size: 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background-color: #fff;
-  transition: border-color 0.2s;
-}
-
-.order-form input:focus, 
-.order-form select:focus, 
-.order-form textarea:focus {
-  border-color: #111;
-  outline: none;
-}
-
-/* Price Breakdown Box */
-.price-summary-box {
-  background: #f9f8f6;
-  border: 1px solid #e5e0d8;
-  border-radius: 8px;
-  padding: 20px;
-  margin: 25px 0;
-}
-
-.price-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 15px;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.total-row {
-  border-top: 1px solid #dcd6cd;
-  padding-top: 12px;
-  margin-top: 12px;
-  font-weight: bold;
-  font-size: 18px;
-  color: #111;
-}
-
-/* Green Submit Button */
-.submit-btn-green {
-  width: 100%;
-  background-color: #fdfbd4;
-  color: #000000;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  letter-spacing: 1px;
-  transition: background-color 0.2s, transform 0.1s;
-}
-
-.submit-btn-green:hover {
-  background-color: #219653;
-}
-
-.submit-btn-green:active {
-  transform: scale(0.99);
-}
         /* Footer Styles */
 .site-footer {
   background-color: #111110;
@@ -1166,80 +1055,50 @@
       <p class="product-sizes">Sizes: M</p>
       <a href="javascript:void(0)" class="order-card-btn">Order Now &rarr;</a>
     </div>
-
-  </div>
-</section>
-<!-- CASH ON DELIVERY ORDER FORM SECTION -->
-<section class="order-section" id="order">
-  <div class="order-container">
-    <h2>Place Your Order (Cash on Delivery)</h2>
-    <p class="order-subtitle">Fill out your shipping details below and pay when your package arrives.</p>
-
-    <form action="https://api.web3forms.com/submit" method="POST" class="order-form">
-  <input type="hidden" name="access_key" value="bbcc2bbf-c9db-46a5-8bf8-a312f0ea158b">
-  <input type="hidden" name="subject" value="New Orvexan Order Received!">
-
-  <div class="form-group">
-    <label>Selected Item & Size</label>
-    <select name="Product_And_Size" id="product-select" required>
-      <option value="">Select Item & Size...</option>
-      <option value="Customizable Hoodie - M" data-price="650">Customizable Hoodie - M (650 tk)</option>
-      <option value="Customizable Hoodie - L" data-price="650">Customizable Hoodie - L (650 tk)</option>
-      <option value="Customizable Hoodie - XL" data-price="650">Customizable Hoodie - XL (650 tk)</option>
-      <option value="Boxy Fit Henley - M" data-price="400">Boxy Fit Henley - M (400 tk)</option>
-      <option value="Boxy Fit Henley - L" data-price="400">Boxy Fit Henley - L (400 tk)</option>
-      <option value="Boxy Fit Henley - XL" data-price="400">Boxy Fit Henley - XL (400 tk)</option>
-      <option value="Premium Boxy Fit Shirt - M" data-price="550">Premium Boxy Fit Shirt - M (550 tk)</option>
-      <option value="Premium Boxy Fit Shirt - L" data-price="550">Premium Boxy Fit Shirt - L (550 tk)</option>
-      <option value="Sage Green Polo Shirt - L" data-price="450">Sage Green Polo Shirt - L (450 tk)</option>
-      <option value="White Boxy Fit Shirt - M" data-price="550">White Boxy Fit Shirt - M (550 tk)</option>
-      <option value="White Boxy Fit Shirt - L" data-price="550">White Boxy Fit Shirt - L (550 tk)</option>
-      <option value="White Polo Shirt - M" data-price="350">White Polo Shirt - M (350 tk)</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label>Delivery Location</label>
-    <select name="Delivery_Location" id="location-select" required>
-      <option value="">Select Delivery Location...</option>
-      <option value="Inside Chattogram" data-shipping="80">Inside Chattogram (80 BDT)</option>
-      <option value="Dhaka & Other Districts" data-shipping="150">Dhaka & Other Districts (150 BDT)</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label>Full Name</label>
-    <input type="text" name="Customer_Name" placeholder="e.g. Tanvir Ahmed" required>
-  </div>
-
-  <div class="form-group">
-    <label>Phone Number (for Courier Confirmation)</label>
-    <input type="tel" name="Phone_Number" placeholder="01XXXXXXXXX" required>
-  </div>
-
-  <div class="form-group">
-    <label>Full Delivery Address</label>
-    <textarea name="Delivery_Address" placeholder="Enter your full street address, area, and city" required></textarea>
-  </div>
-
-  <!-- PRICE SUMMARY BOX -->
-  <div class="price-summary-box">
-    <div class="price-row">
-      <span>Subtotal:</span>
-      <span id="product-price">0 tk</span>
+    <!-- 7. Ninja Hoodie -->
+    <div class="collection-card" onclick="openProductPortal('ninjahoodie')">
+      <div class="card-image-box">
+        <img src="balaclava-ninja-hoodie.jpeg" alt="Ninja Hoodie">
+      </div>
+      <h3>Ninja Hoodie</h3>
+      <p class="product-price">1100 BDT</p>
+      <p class="product-sizes">Sizes: M, L, XL</p>
+      <a href="javascript:void(0)" class="order-card-btn">Order Now &rarr;</a>
     </div>
-    <div class="price-row">
-      <span>Delivery Cost:</span>
-      <span id="shipping-price">0 tk</span>
-    </div>
-    <div class="price-row total-row">
-      <span>Total:</span>
-      <span id="total-price">0 tk</span>
-    </div>
-  </div>
 
-  <button type="submit" class="submit-btn-green">Submit Order</button>
-</form>
+    <!-- 8. Ferrari F1 Jacket -->
+    <div class="collection-card" onclick="openProductPortal('ferrarif1')">
+      <div class="card-image-box">
+        <img src="ferrari-f1-jacket.jpeg" alt="Ferrari F1 Jacket">
+      </div>
+      <h3>Ferrari F1 Jacket</h3>
+      <p class="product-price">1400 BDT</p>
+      <p class="product-sizes">Sizes: M, L, XL</p>
+      <a href="javascript:void(0)" class="order-card-btn">Order Now &rarr;</a>
+    </div>
+
+    <!-- 9. Quarter-Zip Pullover Sweatshirt -->
+    <div class="collection-card" onclick="openProductPortal('quarterzip')">
+      <div class="card-image-box">
+        <img src="quarter-zip-pullover-sweatshirt.jpeg" alt="Quarter-Zip Pullover Sweatshirt">
+      </div>
+      <h3>Quarter-Zip Pullover Sweatshirt</h3>
+      <p class="product-price">550 BDT</p>
+      <p class="product-sizes">Sizes: M, L, XL</p>
+      <a href="javascript:void(0)" class="order-card-btn">Order Now &rarr;</a>
+    </div>
+
+    <!-- 10. Dark Snap Buttons Hoodie -->
+    <div class="collection-card" onclick="openProductPortal('darksnaphoodie')">
+      <div class="card-image-box">
+        <img src="deep-teal-hoodie.jpeg" alt="Dark Snap Buttons Hoodie">
+      </div>
+      <h3>Dark Snap Buttons Hoodie</h3>
+      <p class="product-price">650 BDT</p>
+      <p class="product-sizes">Sizes: M, L, XL · 11 Colors · +Sticker 750 BDT</p>
+      <a href="javascript:void(0)" class="order-card-btn">Order Now &rarr;</a>
+    </div>
+
   </div>
 </section>
 
@@ -1297,31 +1156,6 @@
   </div>
 </footer>
 </div>
-
-<script>
-    const productSelect = document.getElementById('product-select');
-    const locationSelect = document.getElementById('location-select');
-    const productPriceSpan = document.getElementById('product-price');
-    const shippingPriceSpan = document.getElementById('shipping-price');
-    const totalPriceSpan = document.getElementById('total-price');
-
-    function calculateTotal() {
-      const selectedProduct = productSelect.options[productSelect.selectedIndex];
-      const productPrice = parseInt(selectedProduct.getAttribute('data-price')) || 0;
-
-      const selectedLocation = locationSelect.options[locationSelect.selectedIndex];
-      const shippingFee = parseInt(selectedLocation.getAttribute('data-shipping')) || 0;
-
-      const grandTotal = productPrice + (productPrice > 0 ? shippingFee : 0);
-
-      productPriceSpan.textContent = productPrice + ' tk';
-      shippingPriceSpan.textContent = (productPrice > 0 ? shippingFee : 0) + ' tk';
-      totalPriceSpan.textContent = grandTotal + ' tk';
-    }
-
-    productSelect.addEventListener('change', calculateTotal);
-    locationSelect.addEventListener('change', calculateTotal);
-  </script>
 
 <!-- Auth & Profile Modal -->
 <div id="orvexan-auth-modal" class="orvexan-modal-overlay">
@@ -1646,6 +1480,17 @@ function submitAuthForm() {
       <span class="size-selector-label">Select Size:</span>
       <div id="portal-sizes" class="size-options-row"></div>
 
+      <!-- Optional: Color & Sticker Edition (Shown dynamically when available) -->
+      <div id="portal-colors-group" style="display: none; margin-bottom: 18px;">
+        <span class="size-selector-label">Select Color:</span>
+        <div id="portal-colors" class="size-options-row" style="flex-wrap: wrap;"></div>
+      </div>
+
+      <div id="portal-editions-group" style="display: none; margin-bottom: 22px;">
+        <span class="size-selector-label">Select Option:</span>
+        <div id="portal-editions" class="size-options-row" style="flex-wrap: wrap;"></div>
+      </div>
+
       <!-- Direct Order Form (Product is already pre-selected!) -->
       <div class="portal-order-card">
         <h3>Quick Order</h3>
@@ -1731,11 +1576,68 @@ const ORVEXAN_PRODUCTS = {
     price: "350 BDT",
     image: "White-Polo-shirt.jpeg",
     sizes: ["M"],
-  }
-};
+  },
+  ninjahoodie: {
+    name: "Ninja Hoodie",
+    price: "1100 BDT",
+    image: "balaclava-ninja-hoodie.jpeg",
+    sizes: ["M", "L", "XL"],
+  },
+  ferrarif1: {
+    name: "Ferrari F1 Jacket",
+    price: "1400 BDT",
+    image: "ferrari-f1-jacket.jpeg",
+    sizes: ["M", "L", "XL"],
+  },
+  quarterzip: {
+    name: "Quarter-Zip Pullover Sweatshirt",
+    price: "550 BDT",
+    image: "quarter-zip-pullover-sweatshirt.jpeg",
+    sizes: ["M", "L", "XL"],
+  },
+darksnaphoodie: {
+    name: "Dark Snap Buttons Hoodie",
+    price: "650 BDT",
+    basePrice: 650,
+    image: "deep-teal-hoodie.jpeg",
+    sizes: ["M", "L", "XL"],
+    editions: [
+      { label: "Standard (650 BDT)", price: 650 },
+      { label: "With Sticker Design (750 BDT)", price: 750 }
+    ],
+    colors: [
+      { name: "Deep Teal", image: "deep-teal-hoodie.jpeg" },
+      { name: "Black", image: "black-hoodie.jpeg" },
+      { name: "Blue", image: "blue-hoodie.jpeg" },
+      { name: "Dark Grey", image: "dark-grey-hoodie.jpeg" },
+      { name: "Deep Green", image: "deep-green-hoodie.jpeg" },
+      { name: "Grey", image: "grey-hoodie.jpeg" },
+      { name: "Light Grey", image: "light-grey-hoodie.jpeg" },
+      { name: "Light Pink", image: "light-pink-hoodie.jpeg" },
+      { name: "Navy Blue", image: "navy-blue-hoodie.jpeg" },
+      { name: "Off White", image: "off-white-hoodie.jpeg" },
+      { name: "Silver", image: "silver-hoodie.jpeg" }
+    ]
+  },};
 
 let activeProduct = null;
 let selectedSize = "";
+let selectedColor = "";
+let selectedEditionLabel = "";
+let selectedEditionPrice = 0;
+
+function setPortalImage(src, altText) {
+  const portalImg = document.getElementById("portal-img");
+  const lightboxImg = document.getElementById("portal-lightbox-img");
+  if (portalImg) {
+    portalImg.src = src;
+    if (altText) portalImg.alt = altText;
+  }
+  if (lightboxImg && document.getElementById("portal-lightbox")?.classList.contains("open")) {
+    lightboxImg.src = src;
+    if (altText) lightboxImg.alt = altText;
+  }
+}
 
 // 2. Open Product Portal
 function openProductPortal(productId) {
@@ -1744,13 +1646,11 @@ function openProductPortal(productId) {
 
   activeProduct = product;
   selectedSize = product.sizes[0]; // Default select first available size
+  selectedColor = "";
+  selectedEditionLabel = "";
+  selectedEditionPrice = Number(String(product.price).replace(/[^0-9.]/g, "")) || 0;
 
-  // Populate details
-  const portalImg = document.getElementById("portal-img");
-  if (portalImg) {
-    portalImg.src = product.image;
-    portalImg.alt = product.name;
-  }
+  setPortalImage(product.image, product.name);
   document.getElementById("portal-title").innerText = product.name;
   document.getElementById("portal-price").innerText = product.price;
 
@@ -1763,14 +1663,70 @@ function openProductPortal(productId) {
     btn.className = "size-pill" + (index === 0 ? " active" : "");
     btn.innerText = size;
     btn.onclick = function () {
-      document.querySelectorAll(".size-pill").forEach(b => b.classList.remove("active"));
+      sizeContainer.querySelectorAll(".size-pill").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       selectedSize = size;
     };
     sizeContainer.appendChild(btn);
   });
 
-  // Reset delivery location & recalculate totals once
+  // Color selector pills (when available)
+  const colorsGroup = document.getElementById("portal-colors-group");
+  const colorsContainer = document.getElementById("portal-colors");
+  if (colorsGroup && colorsContainer) {
+    colorsContainer.innerHTML = "";
+    if (Array.isArray(product.colors) && product.colors.length > 0) {
+      colorsGroup.style.display = "block";
+      selectedColor = product.colors[0].name;
+      product.colors.forEach((c, index) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "size-pill" + (index === 0 ? " active" : "");
+        btn.innerText = c.name;
+        btn.onclick = function () {
+          colorsContainer.querySelectorAll(".size-pill").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          selectedColor = c.name;
+          setPortalImage(c.image, `${product.name} - ${c.name}`);
+        };
+        colorsContainer.appendChild(btn);
+      });
+    } else {
+      colorsGroup.style.display = "none";
+    }
+  }
+
+  // Price / Sticker edition pills (when available)
+  const editionsGroup = document.getElementById("portal-editions-group");
+  const editionsContainer = document.getElementById("portal-editions");
+  if (editionsGroup && editionsContainer) {
+    editionsContainer.innerHTML = "";
+    if (Array.isArray(product.editions) && product.editions.length > 0) {
+      editionsGroup.style.display = "block";
+      selectedEditionLabel = product.editions[0].label;
+      selectedEditionPrice = product.editions[0].price;
+      document.getElementById("portal-price").innerText = `${selectedEditionPrice} BDT`;
+
+      product.editions.forEach((ed, index) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "size-pill" + (index === 0 ? " active" : "");
+        btn.innerText = ed.label;
+        btn.onclick = function () {
+          editionsContainer.querySelectorAll(".size-pill").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          selectedEditionLabel = ed.label;
+          selectedEditionPrice = ed.price;
+          document.getElementById("portal-price").innerText = `${ed.price} BDT`;
+          if (typeof updatePortalTotal === "function") updatePortalTotal();
+        };
+        editionsContainer.appendChild(btn);
+      });
+    } else {
+      editionsGroup.style.display = "none";
+    }
+  }
+
   const zone = document.getElementById("portal-delivery-zone");
   if (zone) zone.selectedIndex = 0;
   if (typeof updatePortalTotal === "function") updatePortalTotal();
@@ -1789,7 +1745,6 @@ function openProductPortal(productId) {
   document.getElementById("product-portal").style.display = "block";
   window.scrollTo(0, 0);
 }
-
 // 3. Return to Main Homepage (Top-Left Back Arrow)
 function closeProductPortal() {
   document.getElementById("product-portal").style.display = "none";
@@ -1877,11 +1832,13 @@ async function submitPortalOrder(event) {
 
   const payload = {
     access_key: "bbcc2bbf-c9db-46a5-8bf8-a312f0ea158b",
-    subject: `New Orvexan Order: ${productTitle} (${finalSize})`,
+    subject: `New Orvexan Order: ${productTitle} (${finalSize}${selectedColor ? ", " + selectedColor : ""})`,    from_name: "Orvexan Fashion Storefront",
     from_name: "Orvexan Fashion Storefront",
     product: productTitle,
     price: productPrice,
     size: finalSize,
+    color: selectedColor || "N/A",
+    option_price: selectedEditionLabel || productPrice,
     delivery_location: deliveryLabel,
     subtotal: `${subtotal} BDT`,
     delivery_cost: `${deliveryCost} BDT`,
