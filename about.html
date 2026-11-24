@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Orvexan Fashion</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #faf8f5;
+      color: #222222;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header Bar */
+    header {
+      background-color: #faf8f5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 40px;
+      border-bottom: 1px solid #cdc7a6;
+      width: 100%;
+    }
+
+    .brand-title {
+      font-family: Georgia, serif;
+      font-size: 18px;
+      letter-spacing: 3px;
+      font-weight: bold;
+      color: #222222;
+      text-decoration: none;
+    }
+
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .header-links a {
+      text-decoration: none;
+      color: #444444;
+      font-size: 13px;
+      letter-spacing: 1px;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .header-links a:hover {
+      color: #000000;
+    }
+
+    .back-store-btn {
+      background-color: #000080;
+      color: #ffffff !important;
+      padding: 9px 16px;
+      border-radius: 4px;
+      font-size: 12px !important;
+      letter-spacing: 0.8px;
+    }
+
+    /* About Section */
+    .about-section {
+      flex: 1;
+      padding: 70px 40px;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-container {
+      display: flex;
+      max-width: 1000px;
+      width: 100%;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .founder-image-box {
+      width: 180px;
+      height: 180px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      border: 2px solid #000000;
+      overflow: hidden;
+      margin: 0 auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .founder-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .founder-info {
+      flex: 1.2;
+    }
+
+    .section-subtitle {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #777777;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .founder-info h1 {
+      font-family: Georgia, serif;
+      font-size: 34px;
+      color: #222222;
+      margin-bottom: 8px;
+      font-weight: normal;
+      letter-spacing: 1px;
+    }
+
+    .founder-location {
+      font-size: 13px;
+      color: #666666;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .founder-bio {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #444444;
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: #111110;
+      color: #a0a0a0;
+      padding: 60px 40px 20px 40px;
+      font-family: 'Georgia', serif;
+      border-top: 1px solid #222;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #222;
+    }
+
+    .footer-col h3, .footer-col h4 {
+      color: #ffffff;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      margin-bottom: 15px;
+      font-weight: normal;
+    }
+
+    .footer-col p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #888888;
+    }
+
+    .footer-col a {
+      color: #888888;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: #ffffff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 25px;
+    }
+
+    .footer-bottom p {
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: #666666;
+      text-transform: uppercase;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 14px 20px;
+      }
+
+      .about-section {
+        padding: 40px 20px;
+      }
+
+      .about-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="brand-title">ORVEXAN FASHION</a>
+
+    <div class="header-links">
+      <a href="index.html#collections">Collections</a>
+      <a href="index.html" class="back-store-btn">&#8592; Back to Store</a>
+    </div>
+  </header>
+
+  <section class="about-section">
+    <div class="about-container">
+      <div class="founder-image-box">
+        <img src="Sarjin-Nowshad.jpeg" alt="Sarjin Nowshad - Founder of Orvexan Fashion">
+      </div>
+
+      <div class="founder-info">
+        <span class="section-subtitle">THE VISIONARY</span>
+        <h1>Sarjin Nowshad</h1>
+        <p class="founder-location">Founder &amp; Creative Director, Chittagong, Bangladesh</p>
+        <p class="founder-bio">
+          Orvexan Fashion was born out of a relentless pursuit of elegance and individual expression. Starting this journey at an early age in Chittagong, Sarjin Nowshad combined a passion for timeless aesthetics with modern tailoring.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>ORVEXAN</h3>
+        <p>Luxury clothing &amp; apparel brand based in Chattogram, Bangladesh.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>CUSTOMER CARE</h4>
+        <p>Email: orvexanfashion@gmail.com<br> babusarzin@gmail.com</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>CONNECT WITH US</h4>
+        <p>
+          <a href="#" target="_blank">Facebook</a>&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="#" target="_blank">Instagram</a>&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="#" target="_blank">TikTok</a>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>STORE ACCESS</h4>
+        <p><a href="index.html">Storefront Home</a></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; ORVEXAN FASHION. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

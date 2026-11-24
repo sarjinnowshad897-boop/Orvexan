@@ -422,13 +422,6 @@
             filter: drop-shadow(0px 15px 25px rgba(0, 0, 0, 0.1));
         }
         /* About Section Styling */
-        .about-section {
-            padding: 80px 40px;
-            background-color: #ffffff; /* Matches the header tone */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
 
         .about-container {
             display: flex;
@@ -438,59 +431,9 @@
             align-items: center;
         }
 
-        /* Image Box Placeholder Styling */
-        .founder-image-box {
-  width: 160px !important;
-  height: 160px !important;
-  border-radius: 50% !important;
-  border: 2px solid #000000 !important; /* Thin-medium black stroke */
-  overflow: hidden !important;
-  margin: 0 auto !important;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Optional subtle shadow */
-}
 
-.founder-image-box img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-}
 
-        /* Founder Info Text Styling */
-        .founder-info {
-            flex: 1.2;
-        }
 
-        .section-subtitle {
-            font-size: 11px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #777777;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .founder-info h2 {
-            font-family: Georgia, serif;
-            font-size: 32px;
-            color: #222222;
-            margin-bottom: 8px;
-            font-weight: normal;
-            letter-spacing: 1px;
-        }
-
-        .founder-location {
-            font-size: 13px;
-            color: #666666;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .founder-bio {
-            font-size: 14px;
-            line-height: 1.8;
-            color: #444444;
-        }
 /* Collections Grid & Cards */
 .collections-section {
   padding: 80px 40px;
@@ -936,27 +879,183 @@
   margin-left: 0;
   justify-self: end;
 }
+
+/* Hamburger Menu Button & Slide-Out Drawer */
+.hamburger-btn {
+  background: transparent;
+  border: 1px solid #222222;
+  color: #222222;
+  width: 40px;
+  height: 38px;
+  border-radius: 4px;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.hamburger-btn:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.nav-drawer-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 9990;
+}
+
+.nav-drawer-backdrop.open {
+  display: block;
+}
+
+.nav-drawer {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 300px;
+  max-width: 85vw;
+  height: 100vh;
+  background: #ffffff;
+  color: #111111;
+  z-index: 9995;
+  padding: 24px;
+  box-shadow: -8px 0 28px rgba(0, 0, 0, 0.18);
+  transition: right 0.28s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-drawer.open {
+  right: 0;
+}
+
+.nav-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #eae5de;
+  margin-bottom: 24px;
+}
+
+.nav-drawer-title {
+  font-family: Georgia, serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #222222;
+}
+
+.nav-drawer-close {
+  background: none;
+  border: none;
+  font-size: 26px;
+  line-height: 1;
+  color: #222222;
+  cursor: pointer;
+}
+
+.nav-drawer-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.drawer-action-item {
+  width: 100%;
+  text-align: left;
+  background: #faf8f5;
+  border: 1px solid #e2ddd4;
+  color: #111111;
+  padding: 13px 16px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.drawer-action-item:hover {
+  background: #f0ece3;
+}
+
+.drawer-avatar-mini {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #000000;
+}
+#drawer-auth-btn {
+  background-color: #fdfbd4;
+  border-color: #cdc7a6;
+  color: #000000;
+}
+
+#drawer-auth-btn:hover {
+  background-color: #cdc7a6;
+}
+
     </style>
 </head>
 <body>
 
 <div id="main-storefront">
-    <header>
-  <!-- Brand title jumps back to top / home -->
-  <a href="#" class="brand-title">ORVEXAN FASHION</a>
 
-  <!-- Right-Side Navy Blue Sign Up / Profile Button -->
-<div id="header-auth-container">
-  <button id="open-auth-btn" class="auth-nav-btn" onclick="openAuthModal()">
-    Sign Up / Log In
-  </button>
+<header>
+    <!-- Brand title jumps back to top / home -->
+    <a href="#" class="brand-title">ORVEXAN FASHION</a>
 
-  <div id="user-profile-badge" class="user-profile-badge" onclick="openProfileView()">
-    <img id="header-avatar" src="https://via.placeholder.com/80/000080/ffffff?text=U" alt="User" />
-    <span id="header-username">Member</span>
-  </div>
-</div>
-</header>
+    <!-- Keep existing auth elements in DOM (hidden in top bar) so auth scripts stay compatible -->
+    <div id="header-auth-container" style="display: none;">
+      <button id="open-auth-btn" class="auth-nav-btn" onclick="openAuthModal()">
+        Sign Up / Log In
+      </button>
+      <div id="user-profile-badge" class="user-profile-badge" onclick="openProfileView()">
+        <img id="header-avatar" src="https://via.placeholder.com/80/000080/ffffff?text=U" alt="User" />
+        <span id="header-username">Member</span>
+      </div>
+    </div>
+
+    <!-- Three-Bar Menu Button -->
+    <button type="button" class="hamburger-btn" onclick="openNavDrawer()" aria-label="Open menu">
+      &#9776;
+    </button>
+  </header>
+
+  <!-- Slide-Out Menu Backdrop & Drawer -->
+  <div id="nav-drawer-backdrop" class="nav-drawer-backdrop" onclick="closeNavDrawer()"></div>
+  <aside id="nav-drawer" class="nav-drawer" aria-label="Navigation Menu">
+    <div class="nav-drawer-header">
+      <span class="nav-drawer-title">MENU</span>
+      <button type="button" class="nav-drawer-close" onclick="closeNavDrawer()" aria-label="Close menu">&times;</button>
+    </div>
+
+    <ul class="nav-drawer-list">
+      <li>
+        <button type="button" id="drawer-auth-btn" class="drawer-action-item" onclick="handleDrawerAuthClick()">
+          <img id="drawer-user-avatar" src="" alt="" class="drawer-avatar-mini" style="display: none;" />
+          <span id="drawer-auth-label">Sign Up / Log In</span>
+        </button>
+      </li>
+      <li>
+        <a href="about.html" class="drawer-action-item" onclick="closeNavDrawer()">
+          <span>About Us</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
     <!-- HOME / HERO SECTION -->
     <section class="home-section" id="home">
         <div class="home-container">
@@ -1101,27 +1200,6 @@
 
   </div>
 </section>
-
-<!-- ABOUT US / FOUNDER SECTION -->
-    <section class="about-section" id="about">
-        <div class="about-container">
-            <!-- Left Side: Founder Image Placeholder -->
-            <div class="founder-image-box">
-                <!-- Leave the src="" empty or write your image filename later, e.g., src="owner.jpg" -->
-                <img src="Sarjin-Nowshad.jpeg" alt="Sarjin Nowshad - Founder of Orvexan Fashion">
-            </div>
-
-            <!-- Right Side: Founder Bio Text -->
-            <div class="founder-info">
-                <span class="section-subtitle">THE VISIONARY</span>
-                <h2>Sarjin Nowshad</h2>
-                <p class="founder-location">Founder & Creative Director, Chittagong, Bangladesh</p>
-                <p class="founder-bio">
-                    Orvexan Fashion was born out of a relentless pursuit of elegance and individual expression. Starting this journey at an early age in Chittagong, Sarjin Nowshad combined a passion for timeless aesthetics with modern tailoring.
-                </p>
-            </div>
-        </div>
-    </section>
 
 <!-- FOOTER SECTION -->
 <footer class="site-footer">
@@ -1898,7 +1976,61 @@ function closePortalLightbox() {
     lightbox.classList.remove("open");
   }
 }
-</script>
 
+
+
+</script>
+<script>
+function openNavDrawer() {
+  syncDrawerAuthState();
+  document.getElementById("nav-drawer")?.classList.add("open");
+  document.getElementById("nav-drawer-backdrop")?.classList.add("open");
+}
+
+function closeNavDrawer() {
+  document.getElementById("nav-drawer")?.classList.remove("open");
+  document.getElementById("nav-drawer-backdrop")?.classList.remove("open");
+}
+
+function syncDrawerAuthState() {
+  const labelEl = document.getElementById("drawer-auth-label");
+  const avatarEl = document.getElementById("drawer-user-avatar");
+  const badgeEl = document.getElementById("user-profile-badge");
+  const headerNameEl = document.getElementById("header-username");
+  const headerAvatarEl = document.getElementById("header-avatar");
+
+  const isSignedIn =
+    (typeof auth !== "undefined" && !!auth.currentUser) ||
+    (badgeEl && window.getComputedStyle(badgeEl).display !== "none");
+
+  if (!labelEl || !avatarEl) return;
+
+  if (isSignedIn) {
+    const displayName = headerNameEl?.innerText?.trim() || "Profile";
+    labelEl.innerText = `Profile (${displayName})`;
+    if (headerAvatarEl && headerAvatarEl.src) {
+      avatarEl.src = headerAvatarEl.src;
+      avatarEl.style.display = "inline-block";
+    }
+  } else {
+    labelEl.innerText = "Sign Up / Log In";
+    avatarEl.style.display = "none";
+  }
+}
+
+function handleDrawerAuthClick() {
+  closeNavDrawer();
+  const badgeEl = document.getElementById("user-profile-badge");
+  const isSignedIn =
+    (typeof auth !== "undefined" && !!auth.currentUser) ||
+    (badgeEl && window.getComputedStyle(badgeEl).display !== "none");
+
+  if (isSignedIn && typeof openProfileView === "function") {
+    openProfileView();
+  } else if (typeof openAuthModal === "function") {
+    openAuthModal();
+  }
+}
+</script>
 </body>
 </html>
