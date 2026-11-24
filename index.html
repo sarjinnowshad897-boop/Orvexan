@@ -1005,6 +1005,176 @@
 #drawer-auth-btn:hover {
   background-color: #cdc7a6;
 }
+/* === ORVEXAN VISUAL & LAYOUT UPGRADE (OPTION 3) === */
+
+/* 1. Unify Accent Palette (Brushed Champagne Gold & Obsidian) */
+:root {
+  --orvexan-gold: #e6c280;
+  --orvexan-gold-hover: #f0d296;
+  --orvexan-dark: #111111;
+  --orvexan-cream: #faf8f5;
+}
+
+#drawer-auth-btn,
+.auth-nav-btn,
+.orvexan-btn-primary,
+.portal-submit-btn {
+  background-color: var(--orvexan-gold) !important;
+  border-color: var(--orvexan-gold) !important;
+  color: #111111 !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px;
+  transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+#drawer-auth-btn:hover,
+.auth-nav-btn:hover,
+.orvexan-btn-primary:hover,
+.portal-submit-btn:hover {
+  background-color: var(--orvexan-gold-hover) !important;
+}
+
+.size-pill.active {
+  background-color: var(--orvexan-gold) !important;
+  border-color: var(--orvexan-gold) !important;
+  color: #111111 !important;
+  font-weight: 700;
+}
+
+/* 2. Hero Secondary CTA & Spotlight Backdrop */
+.home-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+.btn-secondary-ghost {
+  display: inline-block;
+  border: 1px solid #111111;
+  color: #111111;
+  background: transparent;
+  padding: 13px 24px;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 2px;
+  transition: all 0.25s ease;
+}
+
+.btn-secondary-ghost:hover {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+.home-image-box {
+  position: relative;
+}
+
+.home-image-box::before {
+  content: "";
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(230, 194, 128, 0.26) 0%, rgba(250, 248, 245, 0) 72%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.home-image-box img {
+  position: relative;
+  z-index: 1;
+}
+
+/* 3. Brand Ticker Strip Between Hero & Collections */
+.brand-ticker-bar {
+  background-color: #141414;
+  color: var(--orvexan-gold);
+  border-top: 1px solid #262626;
+  border-bottom: 1px solid #262626;
+  padding: 12px 16px;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* 4. Category Filter Pills */
+.filter-tabs-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: -24px auto 38px;
+}
+
+.filter-tab-btn {
+  background: #161616;
+  color: #bbbbbb;
+  border: 1px solid #2c2c2c;
+  padding: 9px 20px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-tab-btn:hover {
+  border-color: var(--orvexan-gold);
+  color: #ffffff;
+}
+
+.filter-tab-btn.active {
+  background: var(--orvexan-gold);
+  border-color: var(--orvexan-gold);
+  color: #111111;
+}
+
+/* 5. Refined Collection Cards & NEW Badge */
+.collection-card {
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.collection-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(230, 194, 128, 0.55);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+.new-drop-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  background-color: var(--orvexan-gold);
+  color: #111111;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .home-buttons {
+    justify-content: center;
+  }
+  .brand-ticker-bar {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+  }
+}
 
     </style>
 </head>
@@ -1068,40 +1238,51 @@
                     Premium hoodies, tailored polo shirts, and signature boxy-fit silhouettes. 
                     Crafted for those who value refined minimalism and modern streetwear elegance.
                 </p>
-                <div class="home-buttons">
-                    <a href="#collections" class="btn-primary">Explore Collection →</a>
+<div class="home-buttons">
+                    <a href="#collections" class="btn-primary">Explore Collection &rarr;</a>
+                    <a href="about.html" class="btn-secondary-ghost">Our Story</a>
                 </div>
             </div>
 
             <!-- Right Side: Hoodie Product Image -->
             <div class="home-image-box">
-                <!-- Change "hoodie.png" to match your hoodie image filename later -->
                 <img src="hoodie-toon.png" alt="Orvexan Premium Hoodie">
             </div>
 
         </div>
     </section>
 
+    <!-- BRAND ANNOUNCEMENT TICKER -->
+    <div class="brand-ticker-bar">
+      CASH ON DELIVERY ACROSS BANGLADESH &nbsp;&bull;&nbsp; CHATTOGRAM &amp; DHAKA EXPRESS &nbsp;&bull;&nbsp; LIMITED BATCH DROPS
+    </div>
     <!-- FEATURED COLLECTIONS SECTION -->
 <section class="collections-section" id="collections">
   <h2 class="collections-title">Featured Collections</h2>
-  <p class="collections-subtitle">Elevated Essentials & Premium Fits</p>
+  <p class="collections-subtitle">Elevated Essentials &amp; Premium Fits</p>
+
+  <!-- Category Filter Tabs -->
+  <div class="filter-tabs-row">
+    <button type="button" class="filter-tab-btn active" onclick="filterCollections('all', this)">All Pieces</button>
+    <button type="button" class="filter-tab-btn" onclick="filterCollections('outerwear', this)">Hoodies &amp; Jackets</button>
+    <button type="button" class="filter-tab-btn" onclick="filterCollections('tops', this)">Shirts &amp; Polos</button>
+  </div>
 
   <div class="collections-grid">
     
-    <!-- 1. Hoodie (Customizable) -->
-    <div class="collection-card" onclick="openProductPortal('starboy')">
-  <div class="card-image-box">
-    <img src="Hoodie.jpeg" alt="Hoodie">
-  </div>
-  <h3>Hoodie</h3>
-  <p class="product-price">650 BDT</p>
-  <p class="product-sizes">Sizes: M, L, XL</p>
-  <a href="javascript:void(0)" class="order-card-btn">Order Now &rarr;</a>
-</div>
+    <!-- 1. Hoodie -->
+    <div class="collection-card" data-category="outerwear" onclick="openProductPortal('starboy')">
+      <div class="card-image-box">
+        <img src="Hoodie.jpeg" alt="Hoodie">
+      </div>
+      <h3>Hoodie</h3>
+      <p class="product-price">650 BDT</p>
+      <p class="product-sizes">Sizes: M, L, XL</p>
+      <a href="javascript:void(0)" class="order-card-btn">Order Now &rarr;</a>
+    </div>
 
     <!-- 2. Boxy Fit Henley -->
-    <div class="collection-card" onclick="openProductPortal('henley')">
+    <div class="collection-card" data-category="tops" onclick="openProductPortal('henley')">
       <div class="card-image-box">
         <img src="Boxy-Fit-Henley.jpeg" alt="Boxy Fit Henley">
       </div>
@@ -1112,7 +1293,7 @@
     </div>
 
     <!-- 3. Premium Boxy Fit Shirt -->
-    <div class="collection-card" onclick="openProductPortal('pbfshirt')">
+    <div class="collection-card" data-category="tops" onclick="openProductPortal('pbfshirt')">
       <div class="card-image-box">
         <img src="Boxy-Fit-Shirt.jpeg" alt="Premium Boxy Fit Shirt">
       </div>
@@ -1123,7 +1304,7 @@
     </div>
 
     <!-- 4. Sage Green Polo Shirt -->
-    <div class="collection-card" onclick="openProductPortal('sgpshirt')">
+    <div class="collection-card" data-category="tops" onclick="openProductPortal('sgpshirt')">
       <div class="card-image-box">
         <img src="Sage-Green-Polo-Shirt.jpeg" alt="Sage Green Polo Shirt">
       </div>
@@ -1134,7 +1315,7 @@
     </div>
 
     <!-- 5. White Boxy Fit Shirt -->
-    <div class="collection-card" onclick="openProductPortal('wbfshirt')">
+    <div class="collection-card" data-category="tops" onclick="openProductPortal('wbfshirt')">
       <div class="card-image-box">
         <img src="White-Boxy-Fit-Shirt.jpeg" alt="White Boxy Fit Shirt">
       </div>
@@ -1145,7 +1326,7 @@
     </div>
 
     <!-- 6. White Polo Shirt -->
-    <div class="collection-card" onclick="openProductPortal('wpshirt')">
+    <div class="collection-card" data-category="tops" onclick="openProductPortal('wpshirt')">
       <div class="card-image-box">
         <img src="White-Polo-shirt.jpeg" alt="White Polo Shirt">
       </div>
@@ -1154,9 +1335,11 @@
       <p class="product-sizes">Sizes: M</p>
       <a href="javascript:void(0)" class="order-card-btn">Order Now &rarr;</a>
     </div>
+
     <!-- 7. Ninja Hoodie -->
-    <div class="collection-card" onclick="openProductPortal('ninjahoodie')">
+    <div class="collection-card" data-category="outerwear" onclick="openProductPortal('ninjahoodie')">
       <div class="card-image-box">
+        <span class="new-drop-badge">New Drop</span>
         <img src="balaclava-ninja-hoodie.jpeg" alt="Ninja Hoodie">
       </div>
       <h3>Ninja Hoodie</h3>
@@ -1166,8 +1349,9 @@
     </div>
 
     <!-- 8. Ferrari F1 Jacket -->
-    <div class="collection-card" onclick="openProductPortal('ferrarif1')">
+    <div class="collection-card" data-category="outerwear" onclick="openProductPortal('ferrarif1')">
       <div class="card-image-box">
+        <span class="new-drop-badge">New Drop</span>
         <img src="ferrari-f1-jacket.jpeg" alt="Ferrari F1 Jacket">
       </div>
       <h3>Ferrari F1 Jacket</h3>
@@ -1177,8 +1361,9 @@
     </div>
 
     <!-- 9. Quarter-Zip Pullover Sweatshirt -->
-    <div class="collection-card" onclick="openProductPortal('quarterzip')">
+    <div class="collection-card" data-category="outerwear" onclick="openProductPortal('quarterzip')">
       <div class="card-image-box">
+        <span class="new-drop-badge">New Drop</span>
         <img src="quarter-zip-pullover-sweatshirt.jpeg" alt="Quarter-Zip Pullover Sweatshirt">
       </div>
       <h3>Quarter-Zip Pullover Sweatshirt</h3>
@@ -1188,13 +1373,14 @@
     </div>
 
     <!-- 10. Dark Snap Buttons Hoodie -->
-    <div class="collection-card" onclick="openProductPortal('darksnaphoodie')">
+    <div class="collection-card" data-category="outerwear" onclick="openProductPortal('darksnaphoodie')">
       <div class="card-image-box">
+        <span class="new-drop-badge">New Drop</span>
         <img src="deep-teal-hoodie.jpeg" alt="Dark Snap Buttons Hoodie">
       </div>
       <h3>Dark Snap Buttons Hoodie</h3>
       <p class="product-price">650 BDT</p>
-      <p class="product-sizes">Sizes: M, L, XL · 11 Colors · +Sticker 750 BDT</p>
+      <p class="product-sizes">Sizes: M, L, XL &middot; 11 Colors &middot; +Sticker 750 BDT</p>
       <a href="javascript:void(0)" class="order-card-btn">Order Now &rarr;</a>
     </div>
 
@@ -1977,7 +2163,15 @@ function closePortalLightbox() {
   }
 }
 
+function filterCollections(category, btnEl) {
+  document.querySelectorAll(".filter-tab-btn").forEach(btn => btn.classList.remove("active"));
+  if (btnEl) btnEl.classList.add("active");
 
+  document.querySelectorAll(".collection-card").forEach(card => {
+    const cardCat = card.getAttribute("data-category");
+    card.style.display = (category === "all" || cardCat === category) ? "flex" : "none";
+  });
+}
 
 </script>
 <script>
