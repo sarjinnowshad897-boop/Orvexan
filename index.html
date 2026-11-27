@@ -3,6 +3,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orvexan Fashion</title>
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Oswald:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Reset default spacing */
         * {
@@ -59,155 +62,42 @@
         .nav-menu a:hover {
             color: #000000;
         }
-       .home-section {
-  padding: 60px 40px; /* Matches header left/right padding */
-  background-color: #faf8f5;
-  min-height: 80vh;
+
+
+/* === HERO: SINGLE CENTERED IMAGE ONLY === */
+#home.home-section {
+  min-height: 75vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #eae5de;
+  justify-content: center;
+  padding: 36px 20px;
 }
 
-        /* Push hero content toward the left and right edges on desktop */
-.hero-container,
-.home-container {
+.hero-single-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-single-image img {
+  max-height: 70vh;
+  width: auto;
   max-width: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  object-fit: contain;
+  display: block;
 }
 
-        /* Left Side Text Styling */
-        .home-text {
-  flex: 1.1;
-  max-width: 540px;
-  text-align: left;
-}
-
-        .brand-tagline {
-            font-size: 11px;
-            letter-spacing: 4px;
-            color: #777777;
-            text-transform: uppercase;
-            display: block;
-            margin-bottom: 15px;
-        }
-
-        .home-text h1 {
-            font-family: Georgia, serif;
-            font-size: 46px;
-            line-height: 1.2;
-            color: #111111;
-            font-weight: normal;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-
-/* Slow-motion luxury entrance animation for hero text (unchanged) */
-@keyframes heroFadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.home-text > * {
-  opacity: 0;
-  animation: heroFadeUp 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.home-text > *:nth-child(1) { animation-delay: 0.2s; }
-.home-text > *:nth-child(2) { animation-delay: 0.55s; }
-.home-text > *:nth-child(3) { animation-delay: 0.9s; }
-.home-text > *:nth-child(4) { animation-delay: 1.25s; }
-
-/* Slow-motion left-to-right sway on the hoodie */
-@keyframes hoodieSway {
-  0%, 100% {
-    transform: translateX(0) rotate(0deg);
-  }
-  25% {
-    transform: translateX(10px) rotate(2.5deg);
-  }
-  75% {
-    transform: translateX(-10px) rotate(-2.5deg);
-  }
-}
-
-.home-section img[src*="hoodie-toon"] {
-  animation: heroFadeUp 2s cubic-bezier(0.22, 1, 0.36, 1) 0.4s backwards,
-             hoodieSway 8s ease-in-out 2.4s infinite;
-}
-
-/* Desktop Hero Layout: Text Left, Hoodie Right */
-.home-container,
-.hero-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 100%;
-  padding: 0;
-  gap: 40px;
-}
-
-.home-text {
-  flex: 1;
-  max-width: 520px;
-  text-align: left;
-}
-
-.home-image,
-.home-img,
-.hero-image,
-.home-section > div > div:last-child {
-  margin-left: auto;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.home-section img[src*="hoodie-toon"] {
-  max-width: 380px;
-  width: 100%;
-  height: auto;
-  margin: 0;
-}
-
-/* Mobile Phone Screens ONLY (max-width: 768px) */
 @media (max-width: 768px) {
-  .home-section {
-    padding: 40px 20px;
-    justify-content: center;
+  #home.home-section {
+    min-height: 55vh;
+    padding: 24px 16px;
   }
 
-  .home-container,
-  .hero-container {
-    flex-direction: column;
-    text-align: center;
-    gap: 24px;
-  }
-
-  .home-text {
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .home-image,
-  .home-img,
-  .hero-image,
-  .home-section > div > div:last-child {
-    margin-left: 0;
-    justify-content: center;
+  .hero-single-image img {
+    max-height: 48vh;
   }
 }
 
@@ -1175,7 +1065,158 @@
     line-height: 1.5;
   }
 }
+/* === BRAND BESIDE-TEXT & SITE COLOR SHIFT (EXCLUDING FOOTER) === */
+.brand-lockup-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
 
+.brand-beside-text {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #111111;
+  background-color: #e6c280;
+  padding: 4px 8px;
+  border-radius: 3px;
+  line-height: 1;
+}
+
+/* Default #f4f2ec Cream/Ivory Shift (Footer Untouched) */
+body:not(.theme-dark):not(.theme-light),
+body:not(.theme-dark):not(.theme-light) header,
+body:not(.theme-dark):not(.theme-light) .home-section,
+body:not(.theme-dark):not(.theme-light) .collections-section {
+  background-color: #f4f2ec !important;
+  color: #111111 !important;
+}
+
+body:not(.theme-dark):not(.theme-light) header {
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08) !important;
+}
+
+body:not(.theme-dark):not(.theme-light) .brand-title,
+body:not(.theme-dark):not(.theme-light) .hamburger-btn,
+body:not(.theme-dark):not(.theme-light) .collections-title {
+  color: #111111 !important;
+}
+
+body:not(.theme-dark):not(.theme-light) .collections-subtitle {
+  color: #4a4843 !important;
+}
+
+body:not(.theme-dark):not(.theme-light) .brand-ticker-bar {
+  background-color: #eae6dd !important;
+  color: #111111 !important;
+  border-top-color: rgba(17, 17, 17, 0.08) !important;
+  border-bottom-color: rgba(17, 17, 17, 0.08) !important;
+}
+
+body:not(.theme-dark):not(.theme-light) .collection-card {
+  background-color: #fbfaf7 !important;
+  border: 1px solid rgba(17, 17, 17, 0.1) !important;
+  color: #111111 !important;
+  box-shadow: none !important;
+}
+
+body:not(.theme-dark):not(.theme-light) .collection-card h3,
+body:not(.theme-dark):not(.theme-light) .order-card-btn {
+  color: #111111 !important;
+}
+
+body:not(.theme-dark):not(.theme-light) .product-price {
+  color: #8c6620 !important;
+}
+
+body:not(.theme-dark):not(.theme-light) .product-sizes {
+  color: #5c5952 !important;
+}
+
+body:not(.theme-dark):not(.theme-light) .filter-tab-btn {
+  background-color: #eae6dd !important;
+  color: #111111 !important;
+  border-color: rgba(17, 17, 17, 0.12) !important;
+}
+
+body:not(.theme-dark):not(.theme-light) .filter-tab-btn.active {
+  background-color: #111111 !important;
+  color: #f4f2ec !important;
+  border-color: #111111 !important;
+}
+
+/* === FULL BLACK THEME (FROM SETTINGS) === */
+body.theme-dark,
+body.theme-dark header,
+body.theme-dark .home-section,
+body.theme-dark .collections-section {
+  background-color: #0d0d0d !important;
+  color: #f5f5f5 !important;
+}
+
+body.theme-dark .brand-title,
+body.theme-dark .hamburger-btn,
+body.theme-dark .collections-title,
+body.theme-dark .collection-card h3,
+body.theme-dark .order-card-btn {
+  color: #ffffff !important;
+}
+
+body.theme-dark .collection-card {
+  background-color: #161616 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* === FULL WHITE THEME (FROM SETTINGS) === */
+body.theme-light,
+body.theme-light header,
+body.theme-light .home-section,
+body.theme-light .collections-section {
+  background-color: #ffffff !important;
+  color: #111111 !important;
+}
+
+body.theme-light .collection-card {
+  background-color: #f9f9f9 !important;
+  border: 1px solid #e5e5e5 !important;
+}
+/* === HERO: CENTERED REDEFINING TEXT ONLY === */
+#home.home-section {
+  min-height: 62vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 56px 24px;
+}
+
+.hero-text-center {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.hero-kicker {
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  opacity: 0.75;
+}
+
+.hero-redefining-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(38px, 5vw, 62px);
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.hero-redefining-copy {
+  font-size: 15px;
+  line-height: 1.65;
+  opacity: 0.85;
+}
     </style>
 </head>
 <body>
@@ -1183,26 +1224,28 @@
 <div id="main-storefront">
 
 <header>
-    <!-- Brand title jumps back to top / home -->
-    <a href="#" class="brand-title">ORVEXAN FASHION</a>
+  <!-- Brand title + beside tag -->
+  <div class="brand-lockup-inline">
+    <a href="#" class="brand-title">ORVEXAN</a>
+    <span class="brand-beside-text">FASHION</span>
+  </div>
 
-    <!-- Keep existing auth elements in DOM (hidden in top bar) so auth scripts stay compatible -->
-    <div id="header-auth-container" style="display: none;">
-      <button id="open-auth-btn" class="auth-nav-btn" onclick="openAuthModal()">
-        Sign Up / Log In
-      </button>
-      <div id="user-profile-badge" class="user-profile-badge" onclick="openProfileView()">
-        <img id="header-avatar" src="https://via.placeholder.com/80/000080/ffffff?text=U" alt="User" />
-        <span id="header-username">Member</span>
-      </div>
-    </div>
-
-    <!-- Three-Bar Menu Button -->
-    <button type="button" class="hamburger-btn" onclick="openNavDrawer()" aria-label="Open menu">
-      &#9776;
+  <!-- Keep existing auth elements in DOM (hidden in top bar) so auth scripts stay compatible -->
+  <div id="header-auth-container" style="display: none;">
+    <button id="open-auth-btn" class="auth-nav-btn" onclick="openAuthModal()">
+      Sign Up / Log In
     </button>
-  </header>
+    <div id="user-profile-badge" class="user-profile-badge" onclick="openProfileView()">
+      <img id="header-avatar" src="https://via.placeholder.com/80/000080/ffffff?text=U" alt="User" />
+      <span id="header-username">Member</span>
+    </div>
+  </div>
 
+  <!-- Three-Bar Menu Button -->
+  <button type="button" class="hamburger-btn" onclick="openNavDrawer()" aria-label="Open menu">
+    &#9776;
+  </button>
+</header>
   <!-- Slide-Out Menu Backdrop & Drawer -->
   <div id="nav-drawer-backdrop" class="nav-drawer-backdrop" onclick="closeNavDrawer()"></div>
   <aside id="nav-drawer" class="nav-drawer" aria-label="Navigation Menu">
@@ -1221,37 +1264,22 @@
       <li>
         <a href="about.html" class="drawer-action-item" onclick="closeNavDrawer()">
           <span>About Us</span>
+          <a href="settings.html" class="drawer-action-item">Settings</a>
         </a>
       </li>
     </ul>
   </aside>
 
-    <!-- HOME / HERO SECTION -->
-    <section class="home-section" id="home">
-        <div class="home-container">
-            
-            <!-- Left Side: Motto & Call to Action -->
-            <div class="home-text">
-                <span class="brand-tagline">— MODERN CLASSIC ESSENTIALS —</span>
-                <h1>Redefining Everyday Luxury.</h1>
-                <p class="home-description">
-                    Premium hoodies, tailored polo shirts, and signature boxy-fit silhouettes. 
-                    Crafted for those who value refined minimalism and modern streetwear elegance.
-                </p>
-<div class="home-buttons">
-                    <a href="#collections" class="btn-primary">Explore Collection &rarr;</a>
-                    <a href="about.html" class="btn-secondary-ghost">Our Story</a>
-                </div>
-            </div>
-
-            <!-- Right Side: Hoodie Product Image -->
-            <div class="home-image-box">
-                <img src="hoodie-toon.png" alt="Orvexan Premium Hoodie">
-            </div>
-
-        </div>
-    </section>
-
+<!-- HERO SECTION (CENTERED TEXT ONLY) -->
+<section class="home-section" id="home">
+  <div class="hero-text-center">
+    <p class="hero-kicker">&mdash; MODERN CLASSIC ESSENTIALS &mdash;</p>
+    <h1 class="hero-redefining-title">Redefining Everyday Luxury.</h1>
+    <p class="hero-redefining-copy">
+      Premium hoodies, tailored polo shirts, and signature boxy-fit silhouettes. Crafted for those who value refined minimalism and modern streetwear elegance.
+    </p>
+  </div>
+</section>
     <!-- BRAND ANNOUNCEMENT TICKER -->
     <div class="brand-ticker-bar">
       CASH ON DELIVERY ACROSS BANGLADESH &nbsp;&bull;&nbsp; CHATTOGRAM &amp; DHAKA EXPRESS &nbsp;&bull;&nbsp; LIMITED BATCH DROPS
@@ -1383,7 +1411,17 @@
       <p class="product-sizes">Sizes: M, L, XL &middot; 11 Colors &middot; +Sticker 750 BDT</p>
       <a href="javascript:void(0)" class="order-card-btn">Order Now &rarr;</a>
     </div>
-
+<!-- Charcoal Collared Jacket (850 BDT) -->
+    <div class="collection-card" data-category="outerwear" onclick="openProductPortal('charcoaljacket')">
+      <div class="card-image-box">
+        <span class="new-drop-badge">New Drop</span>
+        <img src="charcoal-zip-jacket.jpeg" alt="Charcoal Collared Jacket">
+      </div>
+      <h3>Charcoal Collared Jacket</h3>
+      <p class="product-price">850 BDT</p>
+      <p class="product-sizes">Sizes: M, L, XL</p>
+      <a href="javascript:void(0)" class="order-card-btn">Order Now &rarr;</a>
+    </div>
   </div>
 </section>
 
@@ -1859,6 +1897,7 @@ const ORVEXAN_PRODUCTS = {
     image: "quarter-zip-pullover-sweatshirt.jpeg",
     sizes: ["M", "L", "XL"],
   },
+
 darksnaphoodie: {
     name: "Dark Snap Buttons Hoodie",
     price: "650 BDT",
@@ -1882,7 +1921,15 @@ darksnaphoodie: {
       { name: "Off White", image: "off-white-hoodie.jpeg" },
       { name: "Silver", image: "silver-hoodie.jpeg" }
     ]
-  },};
+  },
+  charcoaljacket: {
+    title: "Charcoal Collared Jacket",
+    price: 850,
+    sizes: ["M", "L", "XL"],
+    image: "charcoal-zip-jacket.jpeg",
+    description: "Structured charcoal collared zip jacket available in sizes M, L, and XL."
+  },
+};
 
 let activeProduct = null;
 let selectedSize = "";
@@ -2225,6 +2272,11 @@ function handleDrawerAuthClick() {
     openAuthModal();
   }
 }
+(function applySavedTheme() {
+  const savedTheme = localStorage.getItem("orvexan_theme");
+  if (savedTheme === "dark") document.body.classList.add("theme-dark");
+  if (savedTheme === "light") document.body.classList.add("theme-light");
+})();
 </script>
 </body>
 </html>
